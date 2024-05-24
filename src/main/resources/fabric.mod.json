@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "utools",
+	"version": "${version}",
+	"name": "UTools",
+	"description": "Simple tools for the survival experience. This should act as an replacement to having tens of mods for things like Fullbright, Freecam etc.",
+	"authors": [
+		"Lugo_Sieben"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "NO_LICENSE",
+	"icon": "assets/utools/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.lugo.utools.UTools"
+		],
+		"client": [
+			"net.lugo.utools.UToolsClient"
+		],
+		"fabric-datagen": [
+			"net.lugo.utools.UToolsDataGenerator"
+		]
+	},
+	"mixins": [
+		"utools.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
