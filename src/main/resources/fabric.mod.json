@@ -3,7 +3,7 @@
 	"id": "utools",
 	"version": "${version}",
 	"name": "UTools",
-	"description": "Simple tools for the survival experience. This should act as an replacement to having tens of mods for things like Fullbright, Freecam etc.",
+	"description": "Simple tools for the survival experience. This should act as an replacement to having tens of mods for things like Fullbright, Zoom etc.",
 	"authors": [
 		"Lugo_Sieben"
 	],
