@@ -1,7 +1,6 @@
 package net.lugo.utools;
 
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +10,11 @@ public class UTools implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("UTools (" + MOD_ID + ") initializing.");
+
+		KeyBindings.registerKeybinds();
+		Commands.registerCommands();
+
+		LOGGER.info("UTools (" + MOD_ID + ") initialized.");
 	}
 }
