@@ -8,11 +8,12 @@
 		"Lugo_Sieben"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"issues": "https://github.com/lugosieben/utools/issues",
+		"sources": "https://github.com/lugosieben/utools"
 	},
 	"license": "CC BY-NC 4.0",
-	"environment": "*",
+	"icon": "assets/utools/icon.png",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"net.lugo.utools.UTools"
