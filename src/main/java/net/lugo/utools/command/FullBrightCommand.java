@@ -12,7 +12,7 @@ public class FullBrightCommand {
         dispatcher.register(CommandManager.literal("fullbright")
                 .executes(context -> FullBright.toggle())
                 .then(CommandManager.argument("value", integer())
-                        .executes(FullBright::setValue)
+                        .executes(context -> FullBright.setValue((double) getInteger(context, "value") / 100))
                 )
         );
     }

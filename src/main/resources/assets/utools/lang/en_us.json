@@ -1,6 +1,11 @@
 {
   "key.categories.utools": "UTools",
-  "key.utools.fullbrightToggle": "Fullbright Toggle",
+  "text.autoconfig.utools.title": "UTools",
 
+
+
+  "key.utools.fullbrightToggle": "Fullbright Toggle",
+  "text.autoconfig.utools.option.normalGammaPercentage": "Normal Gamma",
+  "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Gamma",
   "text.utools.message.gammaPercentage": "Gamma: %d%%"
 }

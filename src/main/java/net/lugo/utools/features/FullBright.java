@@ -1,26 +1,28 @@
 package net.lugo.utools.features;
 
-import com.mojang.brigadier.context.CommandContext;
+import me.shedaniel.autoconfig.AutoConfig;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.util.HudMessage;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.SimpleOption;
-import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import static com.mojang.brigadier.arguments.IntegerArgumentType.getInteger;
 
 public class FullBright {
     private static final SimpleOption<Double>  gamma = MinecraftClient.getInstance().options.getGamma();
+    private static final ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
-    public static int setValue(CommandContext<ServerCommandSource> serverCommandSourceCommandContext) {
-        double value = (double) getInteger(serverCommandSourceCommandContext, "value") / 100;
+    public static int setValue(double value) {
         gamma.setValue(value);
         return 1;
     }
 
     public static int toggle() {
-        double toPut = gamma.getValue() == 15.0 ? 1.0 : 15.0;
+        int normalGamma = config.normalGammaPercentage / 100;
+        int fullGamma = config.fullGammaPercentage / 100;
+
+        double toPut = gamma.getValue() == fullGamma ? normalGamma : fullGamma;
         int percentage = (int)toPut * 100;
         MutableText message = Text.translatable("text.utools.message.gammaPercentage", String.valueOf(percentage));
         gamma.setValue(toPut);
