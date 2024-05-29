@@ -14,4 +14,6 @@ public class Zoom {
     public static boolean isZooming () {
         return zooming;
     }
+
+    // The real functionality happens in mixin/ZoomMixin
 }
