@@ -7,14 +7,10 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = UTools.MOD_ID)
 public class ModConfig  implements ConfigData {
-    boolean test1 = true;
-    int MyNumber = 3;
 
-    @ConfigEntry.Gui.CollapsibleObject
-    CollapsebleConfigs CollapsebleConfigsObject = new CollapsebleConfigs();
+    @ConfigEntry.BoundedDiscrete(min = 0,max = 1500)
+    public int normalGammaPercentage = 100;
 
-    static class CollapsebleConfigs {
-        boolean test2 = false;
-        double valueOfSomething = 0;
-    }
+    @ConfigEntry.BoundedDiscrete(min = 0,max = 1500)
+    public int fullGammaPercentage = 1500;
 }
