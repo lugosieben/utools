@@ -16,6 +16,9 @@
 	"entrypoints": {
 		"main": [
 			"net.lugo.utools.UTools"
+		],
+		"modmenu": [
+			"net.lugo.utools.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
