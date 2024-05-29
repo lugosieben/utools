@@ -19,8 +19,12 @@ public class ZoomMixin {
     @Inject(at = @At("RETURN"), method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D",cancellable = true)
     public void getZoomLevel(CallbackInfoReturnable<Double> callbackInfo) {
         if (Zoom.isZooming()){
+            // Prevent Zoom values at 0 or below
+            int zoomMultiplierConfig = AutoConfig.getConfigHolder(ModConfig.class).getConfig().zoomMultiplier;
+            int zoomMultiplier = zoomMultiplierConfig > 0 ? zoomMultiplierConfig : 1;
+
             double fov = callbackInfo.getReturnValue();
-            callbackInfo.setReturnValue(fov / AutoConfig.getConfigHolder(ModConfig.class).getConfig().zoomMultiplier);
+            callbackInfo.setReturnValue(fov / zoomMultiplier);
             MC.options.smoothCameraEnabled = true;
         } else {
             MC.options.smoothCameraEnabled = false;
