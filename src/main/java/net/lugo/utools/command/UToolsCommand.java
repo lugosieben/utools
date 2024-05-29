@@ -11,13 +11,11 @@ import net.minecraft.server.command.ServerCommandSource;
 public class UToolsCommand {
     final static MinecraftClient MC = MinecraftClient.getInstance();
 
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess, CommandManager.RegistrationEnvironment registrationEnvironment) {
+    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess ignoredCommandRegistryAccess, CommandManager.RegistrationEnvironment ignoredRegistrationEnvironment) {
         dispatcher.register(CommandManager.literal("utools")
                 .then(CommandManager.literal("config")
                         .executes(context -> {
-                            MC.execute(() -> {
-                                MC.setScreen(AutoConfig.getConfigScreen(ModConfig.class, MC.currentScreen).get());
-                            });
+                            MC.execute(() -> MC.setScreen(AutoConfig.getConfigScreen(ModConfig.class, MC.currentScreen).get()));
                             return 1;
                         })
                 )
