@@ -19,8 +19,8 @@ public class FullBright {
     }
 
     public static int toggle() {
-        int normalGamma = config.normalGammaPercentage / 100;
-        int fullGamma = config.fullGammaPercentage / 100;
+        double normalGamma = (double) config.normalGammaPercentage / 100;
+        double fullGamma = (double) config.fullGammaPercentage / 100;
 
         double toPut = gamma.getValue() == fullGamma ? normalGamma : fullGamma;
         int percentage = (int)toPut * 100;
