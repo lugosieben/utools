@@ -14,3 +14,5 @@ Change your Gamma above the normal limits. The intended usage is to get Fullbrig
 Use `/fullbright` or the `Toggle Fullbright` keybinding to switch between 1500% (Max) or 100% (Default) gamma.
 
 Use `/fullbright [value]` to change your gamma to any positive value.!
+
+You can toggle the normal / fullbright Gamma values in the settings (Accessible via [ModMenu](https://modrinth.com/mod/modmenu))
