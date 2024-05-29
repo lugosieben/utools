@@ -26,3 +26,7 @@ Zoom in (or out) with a simple hotkey.
 Hold the `Zoom` keybinding to switch into zoom mode.
 
 Change the zoom multiplier (how far it zooms in) in the settings.
+
+# License
+
+This project is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
