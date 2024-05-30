@@ -1,8 +1,12 @@
 <p align="center">
 <img src="src/main/resources/assets/utools/icon.png" alt="Logo of UTools">
-<br>
-[![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/utools)
 </p>
+
+[![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/utools)
+
+[![License Badge](https://img.shields.io/badge/License-CC--BY--NC--4.0-blue)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![GitHub Release](https://img.shields.io/github/v/release/lugosieben/utools)](https://github.com/lugosieben/utools/releases/latest)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/lugosieben/utools)](https://github.com/lugosieben/utools/commits/)
 
 _Simple tools for the survival experience. This should act as a replacement to having tens of mods for things like Fullbright, Zoom etc._
 
