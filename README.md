@@ -1,4 +1,9 @@
-# UTools
+<p align="center">
+<img src="src/main/resources/assets/utools/icon.png" alt="Logo of UTools">
+<br>
+[![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/utools)
+</p>
+
 _Simple tools for the survival experience. This should act as a replacement to having tens of mods for things like Fullbright, Zoom etc._
 
 # Features
