@@ -1,8 +1,9 @@
 <p align="center">
-<img src="src/main/resources/assets/utools/icon.png" alt="Logo of UTools">
+<img height="200" src="src/main/resources/assets/utools/icon.png" alt="Logo of UTools">
 </p>
 
 [![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/utools)
+[![Requires Fabric API](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/supported/fabric_vector.svg)](https://fabricmc.net/)
 
 [![License Badge](https://img.shields.io/badge/License-CC--BY--NC--4.0-blue)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![GitHub Release](https://img.shields.io/github/v/release/lugosieben/utools)](https://github.com/lugosieben/utools/releases/latest)
