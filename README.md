@@ -9,7 +9,7 @@
 [![GitHub Release](https://img.shields.io/github/v/release/lugosieben/utools)](https://github.com/lugosieben/utools/releases/latest)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/lugosieben/utools)](https://github.com/lugosieben/utools/commits/)
 
-_Simple tools for the survival experience. This should act as a replacement to having tens of mods for things like Fullbright, Zoom etc._
+_Simple tools for the survival experience. This should act as a replacement to having tons of mods for things like Fullbright, Zoom etc._
 
 # Features
 
