@@ -15,7 +15,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 
 ## Fullbright / Gamma
 
-![Gamma Comparism](assets/gammacomparism.png)
+![Gamma Comparison](assets/gammacomparism.png)
 
 Change your Gamma above the normal limits. The intended usage is to get Fullbright (Night Vision), but the Gamma can also be changed to a low value.
 
