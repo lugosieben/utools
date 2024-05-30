@@ -29,13 +29,14 @@ You can toggle the normal / fullbright Gamma values in the settings (Accessible 
 
 ## Zoom
 
-Zoom in (or out) with a simple hotkey.
+Zoom in (or out) with a simple hotkey. You can use a smooth zoom or an instant zoom.
 
 #### Usage
 
 Hold the `Zoom` keybinding to switch into zoom mode.
 
 Change the zoom multiplier (how far it zooms in) in the settings.
+To modify the zoom animation, change the `Zoom Speed` (Number from 0 to 1, 1 = Instant)
 
 # License
 
