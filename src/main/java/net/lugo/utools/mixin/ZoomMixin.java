@@ -14,20 +14,33 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(GameRenderer.class)
 public class ZoomMixin {
     @Unique
+    private double lerp(double a, double b, double f)
+    {
+        return (a * (1.0 - f)) + (b * f);
+    }
+
+    @Unique
     MinecraftClient MC = MinecraftClient.getInstance();
+    @Unique
+    double latestZoomMultiplier = 1.0;
+    @Unique
+    private static final ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
     @Inject(at = @At("RETURN"), method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D",cancellable = true)
     public void getZoomLevel(CallbackInfoReturnable<Double> callbackInfo) {
-        if (Zoom.isZooming()){
-            // Prevent Zoom values at 0 or below
-            int zoomMultiplierConfig = AutoConfig.getConfigHolder(ModConfig.class).getConfig().zoomMultiplier;
-            int zoomMultiplier = zoomMultiplierConfig > 0 ? zoomMultiplierConfig : 1;
+        boolean isZooming = Zoom.isZooming();
+        double zoomMultiplier = 1.0;
+        double fov = callbackInfo.getReturnValue();
 
-            double fov = callbackInfo.getReturnValue();
-            callbackInfo.setReturnValue(fov / zoomMultiplier);
+        if (isZooming) {
+            // Prevent Zoom values at 0 or below
+            int ConfigZoomMultiplier = AutoConfig.getConfigHolder(ModConfig.class).getConfig().zoomMultiplier;
+            zoomMultiplier = ConfigZoomMultiplier > 0 ? (double) ConfigZoomMultiplier : 1.0;
             MC.options.smoothCameraEnabled = true;
-        } else {
-            MC.options.smoothCameraEnabled = false;
-        }
+        } else MC.options.smoothCameraEnabled = false;
+
+        double effectiveZoomMultiplier = lerp(latestZoomMultiplier, zoomMultiplier, config.zoomSpeed);
+        latestZoomMultiplier = effectiveZoomMultiplier;
+        callbackInfo.setReturnValue(fov / effectiveZoomMultiplier);
     }
 }
