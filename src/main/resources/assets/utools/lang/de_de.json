@@ -1,0 +1,14 @@
+{
+  "key.categories.utools": "UTools",
+  "text.autoconfig.utools.title": "UTools",
+
+
+  "key.utools.fullbrightToggle": "Fullbright umschalten",
+  "text.autoconfig.utools.option.normalGammaPercentage": "Normale Helligkeit",
+  "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Helligkeit",
+  "text.utools.message.gammaPercentage": "Helligkeit: %d%%",
+
+
+  "key.utools.zoom": "Zoom",
+  "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplikator"
+}
