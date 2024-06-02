@@ -15,4 +15,7 @@ public class ModConfig  implements ConfigData {
     public int fullGammaPercentage = 1500;
 
     public int zoomMultiplier = 3;
+
+    @ConfigEntry.BoundedDiscrete(min=1,max = 15)
+    public int lightOverlayThreshold = 1;
 }

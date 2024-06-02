@@ -18,6 +18,7 @@ public class UTools implements ModInitializer {
 		AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 		KeyBindings.registerKeybinds();
 		Commands.registerCommands();
+		Events.registerEvents();
 
 		LOGGER.info("UTools (" + MOD_ID + ") initialized.");
 	}
