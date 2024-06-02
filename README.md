@@ -37,6 +37,16 @@ Hold the `Zoom` keybinding to switch into zoom mode.
 
 Change the zoom multiplier (how far it zooms in) in the settings.
 
+## Light Overlay
+
+Display the light levels of nearby blocks in real-time. Useful to spawn-proof with torches.
+
+#### Usage
+
+Use the `Toggle Light Overlay` keybinding to toggle on or off. 
+
+You can set the threshold for a green texture in the settings under `Light Overlay Threshold`.
+
 # License
 
 This project is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
