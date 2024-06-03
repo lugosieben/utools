@@ -11,7 +11,12 @@
 
   "key.utools.zoom": "Zoom",
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplier",
+	"text.autoconfig.utools.option.zoomSpeed": "Zoom Speed",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Value from 0 to 1",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Instant",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[2]": "0 = Never",
 
+	
   "key.utools.lightOverlayToggle": "Toggle Light Overlay",
   "text.autoconfig.utools.option.lightOverlayThreshold": "Light Overlay Threshold",
   "text.utools.message.lightOverlayToggle.on": "Light Overlay §2on",
