@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.ConfigData;
 import net.lugo.utools.UTools;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import net.lugo.utools.features.ClientTime.ClientTimeType;
 
 @Config(name = UTools.MOD_ID)
 public class ModConfig  implements ConfigData {
@@ -22,4 +23,7 @@ public class ModConfig  implements ConfigData {
 
     @ConfigEntry.BoundedDiscrete(min=1,max = 15)
     public int lightOverlayThreshold = 1;
+
+    public boolean clientWeatherClear = false;
+    public ClientTimeType clientTimeType = ClientTimeType.Disabled;
 }
