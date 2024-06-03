@@ -4,7 +4,7 @@ These are just ideas, I don't know if I'm going to create all of them. If you wa
 
 - [x] Fullbright
 - [x] Zoom
-- [ ] Free Cam
+- [ ] Free Cam (won't add for now)
 - [x] Light Overlay
-- [ ] Change Client Weather
-- [ ] Change Client Time
+- [x] Change Client Weather
+- [x] Change Client Time
