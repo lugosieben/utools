@@ -1,7 +1,6 @@
 package net.lugo.utools.mixin;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import net.lugo.utools.config.ModConfig;
+import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
