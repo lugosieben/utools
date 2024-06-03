@@ -15,4 +15,8 @@ public class ModConfig  implements ConfigData {
     public int fullGammaPercentage = 1500;
 
     public int zoomMultiplier = 3;
+
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 1)
+    @ConfigEntry.Gui.Tooltip(count = 3)
+    public double zoomSpeed = 0.1;
 }
