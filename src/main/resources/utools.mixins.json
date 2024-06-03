@@ -10,6 +10,8 @@
     "defaultRequire": 1
   },
   "client": [
+    "ClientTimeMixin",
+    "ClientWeatherMixin",
     "SimpleOptionMixin",
     "ZoomMixin"
   ]

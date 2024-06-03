@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.lugo.utools.config.ModConfig;
+import net.lugo.utools.features.ClientTime.ClientTimeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,8 @@ public class UTools implements ModInitializer {
 		KeyBindings.registerKeybinds();
 		Commands.registerCommands();
 		Events.registerEvents();
+
+		CONFIG.clientTimeType = ClientTimeType.Midnight;
 
 		LOGGER.info("UTools (" + MOD_ID + ") initialized.");
 	}
