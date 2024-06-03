@@ -50,6 +50,15 @@ Use the `Toggle Light Overlay` keybinding to toggle on or off.
 
 You can set the threshold for a green texture in the settings under `Light Overlay Threshold`.
 
+## Client Time & Client Weather
+
+Change your local time to `DAY,NOON,NIGHT,MIDNIGHT` and disable rain. This also works on servers since it is only client side.
+
+#### Usage
+
+You can change the time and weather in the settings (`/utools config` or in ModMenu).
+Alternatively you can change the time with `/clienttime set day|noon|night|midnight` and reset with `/clienttime reset`.
+
 # License
 
 This project is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
