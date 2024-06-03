@@ -13,5 +13,7 @@
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplier",
 
   "key.utools.lightOverlayToggle": "Toggle Light Overlay",
-  "text.autoconfig.utools.option.lightOverlayThreshold": "Light Overlay Threshold"
+  "text.autoconfig.utools.option.lightOverlayThreshold": "Light Overlay Threshold",
+  "text.utools.message.lightOverlayToggle.on": "Light Overlay §2on",
+  "text.utools.message.lightOverlayToggle.off": "Light Overlay §4off"
 }

@@ -3,8 +3,12 @@ package net.lugo.utools.features;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.config.ModConfig;
+import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.OverlayRenderer;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
@@ -15,7 +19,12 @@ public class LightOverlay {
     private static boolean activated = false;
     private static final ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
-    public static void toggle() { activated = !activated; }
+    public static void toggle() {
+        activated = !activated;
+        MutableText message = Text.translatable("text.utools.message.lightOverlayToggle.on");
+        if (!activated) message = Text.translatable("text.utools.message.lightOverlayToggle.off");
+        HudMessage.show(message, Formatting.DARK_AQUA);
+    }
 
     public static void renderEnd(WorldRenderContext context) {
         MinecraftClient MC = MinecraftClient.getInstance();
