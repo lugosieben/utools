@@ -40,6 +40,8 @@ To modify the zoom animation, change the `Zoom Speed` (Number from 0 to 1, 1 = I
 
 ## Light Overlay
 
+![Light Overlay Example](assets/lightoverlayexample.png)
+
 Display the light levels of nearby blocks in real-time. Useful to spawn-proof with torches.
 
 #### Usage
