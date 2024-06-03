@@ -1,7 +1,6 @@
 package net.lugo.utools.mixin;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import net.lugo.utools.config.ModConfig;
+import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
@@ -20,7 +19,7 @@ public class ZoomMixin {
     public void getZoomLevel(CallbackInfoReturnable<Double> callbackInfo) {
         if (Zoom.isZooming()){
             // Prevent Zoom values at 0 or below
-            int zoomMultiplierConfig = AutoConfig.getConfigHolder(ModConfig.class).getConfig().zoomMultiplier;
+            int zoomMultiplierConfig = UTools.CONFIG.zoomMultiplier;
             int zoomMultiplier = zoomMultiplierConfig > 0 ? zoomMultiplierConfig : 1;
 
             double fov = callbackInfo.getReturnValue();
