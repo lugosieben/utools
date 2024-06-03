@@ -19,4 +19,7 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 0, max = 1)
     @ConfigEntry.Gui.Tooltip(count = 3)
     public double zoomSpeed = 0.1;
+
+    @ConfigEntry.BoundedDiscrete(min=1,max = 15)
+    public int lightOverlayThreshold = 1;
 }

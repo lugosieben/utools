@@ -20,6 +20,7 @@ public class UTools implements ModInitializer {
 		CONFIG = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 		KeyBindings.registerKeybinds();
 		Commands.registerCommands();
+		Events.registerEvents();
 
 		LOGGER.info("UTools (" + MOD_ID + ") initialized.");
 	}
