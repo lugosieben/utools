@@ -1,0 +1,27 @@
+{
+  "key.categories.utools": "UTools",
+  "text.autoconfig.utools.title": "UTools",
+
+
+  "key.utools.fullbrightToggle": "Alternar Brillo Máximo",
+  "text.autoconfig.utools.option.normalGammaPercentage": "Brillo Normal",
+  "text.autoconfig.utools.option.fullGammaPercentage": "Brillo Máximo",
+  "text.utools.message.gammaPercentage": "Brillo: %d%%",
+
+
+  "key.utools.zoom": "Zoom",
+  "text.autoconfig.utools.option.zoomMultiplier": "Multiplicador del Zoom",
+  "text.autoconfig.utools.option.zoomSpeed": "Velocidad del Zoom",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Valor de 0 a 1",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Instantáneo",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[2]": "0 = Nunca",
+
+	
+  "key.utools.lightOverlayToggle": "Alternar Superposición de Luz",
+  "text.autoconfig.utools.option.lightOverlayThreshold": "Umbral de Superposición de Luz",
+  "text.utools.message.lightOverlayToggle.on": "Superposición de Luz §2activada",
+  "text.utools.message.lightOverlayToggle.off": "Superposición de Luz §4apagada",
+
+  "text.autoconfig.utools.option.clientTimeType": "Tiempo del cliente",
+  "text.autoconfig.utools.option.clientWeatherClear": "No lluvia del cliente"
+}
