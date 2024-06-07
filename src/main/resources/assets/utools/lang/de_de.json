@@ -10,5 +10,18 @@
 
 
   "key.utools.zoom": "Zoom",
-  "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplikator"
+  "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplikator",
+  "text.autoconfig.utools.option.zoomSpeed": "Zoom Geschwindigkeit",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Wert von 0 bis 1",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Direkt",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[2]": "0 = Nie",
+
+	
+  "key.utools.lightOverlayToggle": "Lichtlevel umschalten",
+  "text.autoconfig.utools.option.lightOverlayThreshold": "Lichtlevel Beginn",
+  "text.utools.message.lightOverlayToggle.on": "Lichtlevel §2an",
+  "text.utools.message.lightOverlayToggle.off": "Lichtlevel §4aus",
+
+  "text.autoconfig.utools.option.clientTimeType": "Client Zeit",
+  "text.autoconfig.utools.option.clientWeatherClear": "Kein Client Regen"
 }
