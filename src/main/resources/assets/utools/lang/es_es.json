@@ -13,7 +13,7 @@
   "text.autoconfig.utools.option.zoomMultiplier": "Multiplicador del Zoom",
   "text.autoconfig.utools.option.zoomSpeed": "Velocidad del Zoom",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Valor de 0 a 1",
-  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Imstantáneo",
+  "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Instantáneo",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[2]": "0 = Nunca",
 
 	
