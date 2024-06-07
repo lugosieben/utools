@@ -59,6 +59,14 @@ Change your local time to `DAY,NOON,NIGHT,MIDNIGHT` and disable rain. This also 
 You can change the time and weather in the settings (`/utools config` or in ModMenu).
 Alternatively you can change the time with `/clienttime set day|noon|night|midnight` and reset with `/clienttime reset`.
 
+# Translations
+
+`en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
+
+`de_de` German: [@Kolpixx](https://github.com/Kolpixx)
+
+`es_es` Spanish: [@lugosieben](https://github.com/lugosieben)
+
 # License
 
 This project is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
