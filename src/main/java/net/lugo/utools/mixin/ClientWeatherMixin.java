@@ -1,32 +1,26 @@
 package net.lugo.utools.mixin;
 
 import net.lugo.utools.UTools;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.util.profiler.Profiler;
-import net.minecraft.world.MutableWorldProperties;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.function.Supplier;
+@Mixin(World.class)
+public abstract class ClientWeatherMixin {
 
-@Mixin(ClientWorld.class)
-public abstract class ClientWeatherMixin extends World {
+    @Inject(method = "getRainGradient", at = @At("HEAD"), cancellable = true)
+    public void getRainGradient(float delta, CallbackInfoReturnable<Float> cir) {
+        if (UTools.CONFIG.clientWeatherClear) cir.setReturnValue(0F);
 
-    protected ClientWeatherMixin(MutableWorldProperties properties, RegistryKey<World> registryRef, DynamicRegistryManager registryManager, RegistryEntry<DimensionType> dimensionEntry, Supplier<Profiler> profiler, boolean isClient, boolean debugWorld, long biomeAccess, int maxChainedNeighborUpdates) {
-        super(properties, registryRef, registryManager, dimensionEntry, profiler, isClient, debugWorld, biomeAccess, maxChainedNeighborUpdates);
+        cir.cancel();
     }
 
-    @Override
-    public float getRainGradient(float delta) {
-        if (UTools.CONFIG.clientWeatherClear) return 0f; else return 1f;
-    }
+    @Inject(method = "getThunderGradient", at = @At("HEAD"), cancellable = true)
+    public void getThunderGradient(float delta, CallbackInfoReturnable<Float> cir) {
+        if (UTools.CONFIG.clientWeatherClear) cir.setReturnValue(0F);
 
-    @Override
-    public float getThunderGradient(float delta) {
-        if (UTools.CONFIG.clientWeatherClear) return 0f; else return 1f;
+        cir.cancel();
     }
 }
