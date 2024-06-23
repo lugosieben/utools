@@ -67,6 +67,14 @@ This allows you to unpin all texture packs. Doing so, you can move all texture p
 
 The setting to unpin all packs is located in the settings (`/utools config` or via ModMenu)
 
+## Copy Screenshots
+
+When taking screenshots, the images will be automatically copied to the clipboard.
+
+#### Usage
+
+Toggleable in the settings
+
 # Translations
 
 `en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
