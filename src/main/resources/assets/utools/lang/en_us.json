@@ -23,5 +23,8 @@
   "text.utools.message.lightOverlayToggle.off": "Light Overlay §4off",
 
   "text.autoconfig.utools.option.clientTimeType": "Client Time",
-  "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain"
+  "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain",
+
+  "text.autoconfig.utools.option.unpinAllTexturePacks": "Unpin Texture Packs",
+  "text.autoconfig.utools.option.unpinAllTexturePacks.@Tooltip": "Allows you to move server texture packs"
 }
