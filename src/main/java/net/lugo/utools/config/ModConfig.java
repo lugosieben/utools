@@ -26,4 +26,6 @@ public class ModConfig  implements ConfigData {
 
     public boolean clientWeatherClear = false;
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
+
+    public boolean copyScreenshots = false;
 }

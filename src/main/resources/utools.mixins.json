@@ -12,6 +12,8 @@
   "client": [
     "ClientTimeMixin",
     "ClientWeatherMixin",
+    "CopyScreenshotMixin",
+    "MainMixin",
     "SimpleOptionMixin",
     "ZoomMixin"
   ]
