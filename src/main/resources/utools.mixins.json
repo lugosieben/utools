@@ -13,6 +13,7 @@
     "ClientTimeMixin",
     "ClientWeatherMixin",
     "SimpleOptionMixin",
-    "ZoomMixin"
+    "ZoomMixin",
+    "UnpinTexturePacksMixin"
   ]
 }

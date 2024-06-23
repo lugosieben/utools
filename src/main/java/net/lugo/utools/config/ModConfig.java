@@ -26,4 +26,7 @@ public class ModConfig  implements ConfigData {
 
     public boolean clientWeatherClear = false;
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
+
+    @ConfigEntry.Gui.Tooltip()
+    public boolean unpinAllTexturePacks = false;
 }
