@@ -23,5 +23,9 @@
   "text.utools.message.lightOverlayToggle.off": "Light Overlay §4off",
 
   "text.autoconfig.utools.option.clientTimeType": "Client Time",
-  "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain"
+  "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain",
+
+  "text.autoconfig.utools.option.copyScreenshots": "Copy Screenshots to Clipboard",
+  "text.utools.message.copyScreenshot.success": "Screenshot copied to Clipboard.",
+  "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed."
 }
