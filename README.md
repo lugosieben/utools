@@ -59,6 +59,14 @@ Change your local time to `DAY,NOON,NIGHT,MIDNIGHT` and disable rain. This also 
 You can change the time and weather in the settings (`/utools config` or in ModMenu).
 Alternatively you can change the time with `/clienttime set day|noon|night|midnight` and reset with `/clienttime reset`.
 
+## Unpin Texture Packs
+
+This allows you to unpin all texture packs. Doing so, you can move all texture packs independent of their intended order. This is especially useful when a server forces a resource pack which you don't want. To bypass, you can just move the server pack to the bottom, below the default textures since it is no longer pinned.
+
+#### Usage
+
+The setting to unpin all packs is located in the settings (`/utools config` or via ModMenu)
+
 ## Copy Screenshots
 
 When taking screenshots, the images will be automatically copied to the clipboard.

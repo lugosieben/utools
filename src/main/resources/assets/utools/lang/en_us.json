@@ -25,6 +25,9 @@
   "text.autoconfig.utools.option.clientTimeType": "Client Time",
   "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain",
 
+  "text.autoconfig.utools.option.unpinAllTexturePacks": "Unpin Texture Packs",
+  "text.autoconfig.utools.option.unpinAllTexturePacks.@Tooltip": "Allows you to move server texture packs"
+
   "text.autoconfig.utools.option.copyScreenshots": "Copy Screenshots to Clipboard",
   "text.utools.message.copyScreenshot.success": "Screenshot copied to Clipboard.",
   "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed."

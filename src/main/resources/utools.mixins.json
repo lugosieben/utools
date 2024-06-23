@@ -15,6 +15,7 @@
     "CopyScreenshotMixin",
     "MainMixin",
     "SimpleOptionMixin",
-    "ZoomMixin"
+    "ZoomMixin",
+    "UnpinTexturePacksMixin"
   ]
 }
