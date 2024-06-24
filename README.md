@@ -13,6 +13,14 @@ _Simple tools for the survival experience. This should act as a replacement to h
 
 # Features
 
+## Short Overview
+- Fullbright / Custom Gamma
+- Zoom
+- Light Overlay
+- Client Side Time & Weather
+- Unpin all texture packs (Forced Server Resource Pack Bypass)
+- Auto-Copy Screenshots
+
 ## Fullbright / Gamma
 
 ![Gamma Comparison](assets/gammacomparism.png)
