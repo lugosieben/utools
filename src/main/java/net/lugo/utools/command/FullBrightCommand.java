@@ -8,9 +8,9 @@ import net.minecraft.server.command.ServerCommandSource;
 import static com.mojang.brigadier.arguments.IntegerArgumentType.*;
 
 public class FullBrightCommand {
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess, CommandManager.RegistrationEnvironment registrationEnvironment) {
+    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess ignoredCommandRegistryAccess, CommandManager.RegistrationEnvironment ignoredRegistrationEnvironment) {
         dispatcher.register(CommandManager.literal("fullbright")
-                .executes(context -> FullBright.toggle())
+                .executes(context -> FullBright.toggleGamma())
                 .then(CommandManager.argument("value", integer())
                         .executes(context -> FullBright.setValue((double) getInteger(context, "value") / 100))
                 )

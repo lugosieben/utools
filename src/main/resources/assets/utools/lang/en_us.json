@@ -3,10 +3,12 @@
   "text.autoconfig.utools.title": "UTools",
 
 
-  "key.utools.fullbrightToggle": "Fullbright Toggle",
+  "key.utools.fullbrightGammaToggle": "Fullbright Toggle",
+  "key.utools.fullbrightNVToggle": "Night Vision Toggle",
   "text.autoconfig.utools.option.normalGammaPercentage": "Normal Gamma",
   "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Gamma",
   "text.utools.message.gammaPercentage": "Gamma: %d%%",
+  "text.utools.message.nightVision": "Night Vision %d",
 
 
   "key.utools.zoom": "Zoom",
