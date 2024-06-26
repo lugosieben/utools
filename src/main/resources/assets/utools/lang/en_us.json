@@ -3,6 +3,7 @@
   "text.autoconfig.utools.title": "UTools",
 
 
+  "text.autoconfig.utools.category.Fullbright": "Fullbright",
   "key.utools.fullbrightGammaToggle": "Fullbright Toggle",
   "key.utools.fullbrightNVToggle": "Night Vision Toggle",
   "text.autoconfig.utools.option.normalGammaPercentage": "Normal Gamma",
@@ -12,6 +13,7 @@
 
 
   "key.utools.zoom": "Zoom",
+  "text.autoconfig.utools.category.Zoom": "Zoom",
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplier",
   "text.autoconfig.utools.option.zoomSpeed": "Zoom Speed",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Value from 0 to 1",
@@ -24,6 +26,7 @@
   "text.utools.message.lightOverlayToggle.on": "Light Overlay §2on",
   "text.utools.message.lightOverlayToggle.off": "Light Overlay §4off",
 
+  "text.autoconfig.utools.category.ClientTimeWeather": "Client Time/Weather",
   "text.autoconfig.utools.option.clientTimeType": "Client Time",
   "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain",
 
@@ -32,5 +35,7 @@
 
   "text.autoconfig.utools.option.copyScreenshots": "Copy Screenshots to Clipboard",
   "text.utools.message.copyScreenshot.success": "Screenshot copied to Clipboard.",
-  "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed."
+  "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed.",
+
+  "text.autoconfig.utools.category.default": "Other"
 }
