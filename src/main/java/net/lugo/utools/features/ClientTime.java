@@ -4,7 +4,7 @@ import net.lugo.utools.UTools;
 
 public class ClientTime {
     public static void set(ClientTime.ClientTimeType timeType) {
-        UTools.CONFIG.clientTimeType = timeType;
+        UTools.getConfig().clientTimeType = timeType;
     }
 
     public enum ClientTimeType {

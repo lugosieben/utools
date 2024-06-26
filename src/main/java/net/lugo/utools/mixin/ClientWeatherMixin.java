@@ -12,14 +12,14 @@ public abstract class ClientWeatherMixin {
 
     @Inject(method = "getRainGradient", at = @At("HEAD"), cancellable = true)
     public void getRainGradient(float delta, CallbackInfoReturnable<Float> cir) {
-        if (UTools.CONFIG.clientWeatherClear) cir.setReturnValue(0F);
+        if (UTools.getConfig().clientWeatherClear) cir.setReturnValue(0F);
 
         cir.cancel();
     }
 
     @Inject(method = "getThunderGradient", at = @At("HEAD"), cancellable = true)
     public void getThunderGradient(float delta, CallbackInfoReturnable<Float> cir) {
-        if (UTools.CONFIG.clientWeatherClear) cir.setReturnValue(0F);
+        if (UTools.getConfig().clientWeatherClear) cir.setReturnValue(0F);
 
         cir.cancel();
     }

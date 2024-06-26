@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 
 public class UTools implements ModInitializer {
 	public static final String MOD_ID = "utools";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static ModConfig CONFIG;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	private static ModConfig CONFIG;
 
 	@Override
 	public void onInitialize() {
@@ -24,4 +24,7 @@ public class UTools implements ModInitializer {
 
 		LOGGER.info("UTools (" + MOD_ID + ") initialized.");
 	}
+
+	public static Logger getLogger() { return LOGGER; }
+	public static ModConfig getConfig() { return CONFIG; }
 }

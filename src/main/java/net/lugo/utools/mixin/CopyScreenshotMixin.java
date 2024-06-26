@@ -28,7 +28,7 @@ import java.util.function.Consumer;
 public class CopyScreenshotMixin {
     @Inject(method = "method_1661", at = @At("TAIL"))
     private static void onScreenshot(NativeImage image, File file, Consumer<Text> textReceiver, CallbackInfo ci) {
-        if (!UTools.CONFIG.copyScreenshots) return;
+        if (!UTools.getConfig().copyScreenshots) return;
         MinecraftClient MC = MinecraftClient.getInstance();
         try {
             File screenPath = new File(MC.runDirectory.getAbsolutePath(), "screenshots");
@@ -44,7 +44,7 @@ public class CopyScreenshotMixin {
             HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
         } catch (IOException e) {
             HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
-            UTools.LOGGER.error(e.toString());
+            UTools.getLogger().error(e.toString());
         }
     }
 }

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class UnpinTexturePacksMixin {
     @ModifyReturnValue(method = "isPinned", at = @At("RETURN"))
     private boolean isPinned (boolean value) {
-        if (UTools.CONFIG.unpinAllTexturePacks) return false;
+        if (UTools.getConfig().unpinAllTexturePacks) return false;
         return value;
     }
 }

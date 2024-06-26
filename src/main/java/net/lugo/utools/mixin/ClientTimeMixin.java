@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ClientTimeMixin {
     @Inject(at = @At("RETURN"), method = "getTimeOfDay", cancellable = true)
     public void getTimeOfDay(CallbackInfoReturnable<Long> cir) {
-        switch (UTools.CONFIG.clientTimeType) {
+        switch (UTools.getConfig().clientTimeType) {
             case Disabled -> cir.cancel();
             case Day -> cir.setReturnValue((long) 1000);
             case Noon -> cir.setReturnValue((long) 6000);

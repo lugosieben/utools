@@ -31,12 +31,12 @@ public class ZoomMixin {
 
         if (isZooming) {
             // Prevent Zoom values at 0 or below
-            int ConfigZoomMultiplier = UTools.CONFIG.zoomMultiplier;
+            int ConfigZoomMultiplier = UTools.getConfig().zoomMultiplier;
             zoomMultiplier = ConfigZoomMultiplier > 0 ? (double) ConfigZoomMultiplier : 1.0;
             MC.options.smoothCameraEnabled = true;
         } else MC.options.smoothCameraEnabled = false;
 
-        double effectiveZoomMultiplier = lerp(latestZoomMultiplier, zoomMultiplier, UTools.CONFIG.zoomSpeed);
+        double effectiveZoomMultiplier = lerp(latestZoomMultiplier, zoomMultiplier, UTools.getConfig().zoomSpeed);
         latestZoomMultiplier = effectiveZoomMultiplier;
         callbackInfo.setReturnValue(fov / effectiveZoomMultiplier);
     }
