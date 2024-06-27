@@ -15,6 +15,7 @@ public class OverlayRenderer {
         Camera camera = context.camera();
         Vec3d transformedPos = pos.subtract(camera.getPos());
 
+
         MatrixStack matrixStack = new MatrixStack();
         matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(camera.getPitch()));
         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(camera.getYaw() + 180F));
@@ -22,21 +23,22 @@ public class OverlayRenderer {
 
         Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();
         Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
+        BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
 
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE);
-        buffer.vertex(positionMatrix, 0,1,0).color(1f,1f,1f,1f).texture(0f,0f).light(0, 0).next();
-        buffer.vertex(positionMatrix, 0,1,1).color(1f,1f,1f,1f).texture(0f,1f).light(0, 0).next();
-        buffer.vertex(positionMatrix, 1,1,1).color(1f,1f,1f,1f).texture(1f,1f).light(0, 0).next();
-        buffer.vertex(positionMatrix, 1,1,0).color(1f,1f,1f,1f).texture(1f,0f).light(0, 0).next();
-
-        RenderSystem.setShader(GameRenderer::getPositionColorTexProgram);
-        RenderSystem.setShaderTexture(0, new Identifier(UTools.MOD_ID, "textures/cross.png"));
-        RenderSystem.setShaderColor(r, g, b, 1f);
+        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+        RenderSystem.setShaderTexture(0, Identifier.tryParse(UTools.MOD_ID, "textures/cross.png"));
         RenderSystem.enableDepthTest();
 
-        tessellator.draw();
-
         RenderSystem.setShaderColor(1f,1f,1f,1f);
+
+        buffer.vertex(positionMatrix, 0,1,0).color(1f,1f,1f,1f).texture(0f,0f).light(0, 0);
+        buffer.vertex(positionMatrix, 0,1,1).color(1f,1f,1f,1f).texture(0f,1f).light(0, 0);
+        buffer.vertex(positionMatrix, 1,1,1).color(1f,1f,1f,1f).texture(1f,1f).light(0, 0);
+        buffer.vertex(positionMatrix, 1,1,0).color(1f,1f,1f,1f).texture(1f,0f).light(0, 0);
+
+        RenderSystem.setShaderColor(r, g, b, 1f);
+        BufferRenderer.drawWithGlobalProgram(buffer.end());
+
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
     }
 }

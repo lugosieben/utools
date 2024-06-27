@@ -25,13 +25,13 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 3)
     public double zoomSpeed = 0.1;
 
-    @ConfigEntry.BoundedDiscrete(min=1,max = 15)
-    public int lightOverlayThreshold = 1;
-
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;
     @ConfigEntry.Category("ClientTimeWeather")
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
+
+    @ConfigEntry.BoundedDiscrete(min=1,max = 15)
+    public int lightOverlayThreshold = 1;
     
     @ConfigEntry.Gui.Tooltip()
     public boolean unpinAllTexturePacks = false;
