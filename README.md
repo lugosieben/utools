@@ -20,7 +20,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Client Side Time & Weather
 - Unpin all texture packs (Forced Server Resource Pack Bypass)
 - Auto-Copy Screenshots
-- Turn off different types of Fog individually
+- Turn off different types of Fog individually or all together
 
 ## Fullbright / Gamma / Night Vision
 

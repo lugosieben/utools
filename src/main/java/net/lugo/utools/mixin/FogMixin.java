@@ -36,7 +36,8 @@ public class FogMixin {
         boolean terrain = !(lava || powderSnow || blindness || darkness || water || sky);
 
         boolean disableCurrentFog =
-                (lava && !CONFIG.lavaFog)
+                (CONFIG.turnOffAllFogs)
+                || (lava && !CONFIG.lavaFog)
                 || (powderSnow && !CONFIG.powderSnowFog)
                 || (blindness && !CONFIG.blindnessFog)
                 || (darkness && !CONFIG.darknessFog)

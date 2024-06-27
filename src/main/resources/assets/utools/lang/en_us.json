@@ -40,6 +40,7 @@
   "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed.",
 
   "text.autoconfig.utools.category.Fog": "Fog",
+  "text.autoconfig.utools.option.turnOffAllFogs": "Turn off all Fogs",
   "text.autoconfig.utools.option.terrainFog": "Normal / Terrain Fog",
   "text.autoconfig.utools.option.lavaFog": "Lava Fog",
   "text.autoconfig.utools.option.powderSnowFog": "Powder Snow Fog",

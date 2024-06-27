@@ -35,6 +35,8 @@ public class ModConfig  implements ConfigData {
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
 
     @ConfigEntry.Category("Fog")
+    public boolean turnOffAllFogs = false;
+    @ConfigEntry.Category("Fog")
     public boolean terrainFog = true;
     @ConfigEntry.Category("Fog")
     public boolean lavaFog = true;
