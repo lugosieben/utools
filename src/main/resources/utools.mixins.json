@@ -14,10 +14,11 @@
     "ClientWeatherMixin",
     "CopyScreenshotMixin",
     "LowFireOverlayMixin",
+    "LowShieldMixin",
     "MainMixin",
     "NoPumpkinOverlayMixin",
     "SimpleOptionMixin",
-    "ZoomMixin",
-    "UnpinTexturePacksMixin"
+    "UnpinTexturePacksMixin",
+    "ZoomMixin"
   ]
 }

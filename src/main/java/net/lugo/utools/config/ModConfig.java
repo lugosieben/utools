@@ -35,6 +35,9 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("VisualModifications")
     @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
     public int lowFireModifier = 0;
+    @ConfigEntry.Category("VisualModifications")
+    @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
+    public int lowShieldModifier = 0;
     @ConfigEntry.BoundedDiscrete(min=1,max = 15)
     public int lightOverlayThreshold = 1;
     
