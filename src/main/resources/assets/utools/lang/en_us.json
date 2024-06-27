@@ -39,5 +39,10 @@
   "text.utools.message.copyScreenshot.success": "Screenshot copied to Clipboard.",
   "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed.",
 
+  "text.autoconfig.utools.category.VisualModifications": "Visual Modifications",
+  "text.autoconfig.utools.option.hidePumpkinOverlay": "Hide Pumpkin Overlay",
+  "text.autoconfig.utools.option.lowFireModifier": "Lower Fire (%)",
+  "text.autoconfig.utools.option.lowShieldModifier": "Lower Shield (%)",
+
   "text.autoconfig.utools.category.default": "Other"
 }

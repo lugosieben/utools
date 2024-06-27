@@ -20,6 +20,8 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Client Side Time & Weather
 - Unpin all texture packs (Forced Server Resource Pack Bypass)
 - Auto-Copy Screenshots
+- Hide Pumpkin Overlay
+- Lower Fire & Shield (Customizable)
 
 ## Fullbright / Gamma / Night Vision
 
@@ -85,6 +87,16 @@ When taking screenshots, the images will be automatically copied to the clipboar
 #### Usage
 
 Toggleable in the settings
+
+## Several Visual Modifications
+
+- Hide the pumpkin on head overlay
+- Lower fire overlay (customizable)
+- Lower shield (customizable)
+
+#### Usage
+
+Toggle / Customize in the config under the category `Visual Modifications`
 
 # Translations
 
