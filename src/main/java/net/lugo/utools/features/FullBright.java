@@ -42,7 +42,6 @@ public class FullBright {
             MC.player.removeStatusEffect(StatusEffects.NIGHT_VISION);
             MutableText message = Text.translatable("text.utools.message.nightVision", "off");
             HudMessage.show(message, Formatting.RED);
-            UTools.getLogger().info(MC.player.getActiveStatusEffects().toString());
         }
     }
 }
