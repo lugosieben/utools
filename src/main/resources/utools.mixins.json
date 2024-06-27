@@ -13,6 +13,7 @@
     "ClientTimeMixin",
     "ClientWeatherMixin",
     "CopyScreenshotMixin",
+    "LowFireOverlayMixin",
     "MainMixin",
     "NoPumpkinOverlayMixin",
     "SimpleOptionMixin",
