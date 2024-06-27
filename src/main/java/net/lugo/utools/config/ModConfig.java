@@ -34,6 +34,21 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("ClientTimeWeather")
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
 
+    @ConfigEntry.Category("Fog")
+    public boolean terrainFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean lavaFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean powderSnowFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean blindnessFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean darknessFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean waterFog = true;
+    @ConfigEntry.Category("Fog")
+    public boolean skyFog = true;
+
     @ConfigEntry.BoundedDiscrete(min=1,max = 15)
     public int lightOverlayThreshold = 1;
     
