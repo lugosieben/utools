@@ -38,11 +38,21 @@
   "text.autoconfig.utools.option.copyScreenshots": "Copy Screenshots to Clipboard",
   "text.utools.message.copyScreenshot.success": "Screenshot copied to Clipboard.",
   "text.utools.message.copyScreenshot.fail": "Copying the Screenshot failed.",
-
+  
   "text.autoconfig.utools.category.VisualModifications": "Visual Modifications",
   "text.autoconfig.utools.option.hidePumpkinOverlay": "Hide Pumpkin Overlay",
   "text.autoconfig.utools.option.lowFireModifier": "Lower Fire (%)",
   "text.autoconfig.utools.option.lowShieldModifier": "Lower Shield (%)",
+  
+  "text.autoconfig.utools.category.Fog": "Fog",
+  "text.autoconfig.utools.option.turnOffAllFogs": "Turn off all Fogs",
+  "text.autoconfig.utools.option.terrainFog": "Normal / Terrain Fog",
+  "text.autoconfig.utools.option.lavaFog": "Lava Fog",
+  "text.autoconfig.utools.option.powderSnowFog": "Powder Snow Fog",
+  "text.autoconfig.utools.option.blindnessFog": "Blindness Fog",
+  "text.autoconfig.utools.option.darknessFog": "Darkness Fog",
+  "text.autoconfig.utools.option.waterFog": "Water Fog",
+  "text.autoconfig.utools.option.skyFog": "Sky Fog",
 
   "text.autoconfig.utools.category.default": "Other"
 }

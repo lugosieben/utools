@@ -22,6 +22,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Auto-Copy Screenshots
 - Hide Pumpkin Overlay
 - Lower Fire & Shield (Customizable)
+- Turn off different types of Fog individually or all together
 
 ## Fullbright / Gamma / Night Vision
 
@@ -98,6 +99,18 @@ Toggleable in the settings
 
 Toggle / Customize in the config under the category `Visual Modifications`
 
+## Custom Fog
+
+Allows you to enable / disable ALL types of fogs. See comparison in the nether for Terrain Fog below
+
+![Image](https://github.com/lugosieben/utools/blob/latest/assets/fogcomparison.png?raw=true)
+
+#### Usage
+
+See all fog types in config under `Fog` category. Turn them off to your likings.
+
+**Caution**: Disabling fogs, especially darkness, blindness, lava and water fogs could be considered cheating or an unfair advantage by some players or server administrators.
+ 
 # Translations
 
 `en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)

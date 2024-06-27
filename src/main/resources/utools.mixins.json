@@ -15,6 +15,7 @@
     "CopyScreenshotMixin",
     "LowFireOverlayMixin",
     "LowShieldMixin",
+    "FogMixin",
     "MainMixin",
     "NoPumpkinOverlayMixin",
     "SimpleOptionMixin",
