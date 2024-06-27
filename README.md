@@ -91,7 +91,7 @@ Toggleable in the settings
 
 Allows you to enable / disable ALL types of fogs. See comparison in the nether for Terrain Fog below
 
-![Image](https://github.com/lugosieben/utools/blob/visual-modifications/assets/fogcomparison.png?raw=true)
+![Image](https://github.com/lugosieben/utools/blob/latest/assets/fogcomparison.png?raw=true)
 
 #### Usage
 
