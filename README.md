@@ -20,6 +20,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Client Side Time & Weather
 - Unpin all texture packs (Forced Server Resource Pack Bypass)
 - Auto-Copy Screenshots
+- Turn off different types of Fog individually
 
 ## Fullbright / Gamma / Night Vision
 
@@ -85,6 +86,19 @@ When taking screenshots, the images will be automatically copied to the clipboar
 #### Usage
 
 Toggleable in the settings
+
+## Custom Fog
+
+Allows you to enable / disable ALL types of fogs. See comparison in the nether for Terrain Fog below
+
+![Image](https://github.com/lugosieben/utools/blob/visual-modifications/assets/fogcomparison.png?raw=true)
+
+#### Usage
+
+See all fog types in config under `Fog` category. Turn them off to your likings.
+
+**Caution**: Disabling fogs, especially darkness, blindness, lava and water fogs could be considered cheating or an unfair advantage by some players or server administrators.
+ 
 
 # Translations
 
