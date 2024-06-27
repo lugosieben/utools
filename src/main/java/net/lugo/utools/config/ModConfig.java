@@ -33,7 +33,16 @@ public class ModConfig  implements ConfigData {
     public boolean clientWeatherClear = false;
     @ConfigEntry.Category("ClientTimeWeather")
     public ClientTimeType clientTimeType = ClientTimeType.Disabled;
-
+    
+    @ConfigEntry.Category("VisualModifications")
+    public boolean hidePumpkinOverlay = false;
+    @ConfigEntry.Category("VisualModifications")
+    @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
+    public int lowFireModifier = 0;
+    @ConfigEntry.Category("VisualModifications")
+    @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
+    public int lowShieldModifier = 0;
+  
     @ConfigEntry.Category("Fog")
     public boolean turnOffAllFogs = false;
     @ConfigEntry.Category("Fog")

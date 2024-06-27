@@ -20,6 +20,8 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Client Side Time & Weather
 - Unpin all texture packs (Forced Server Resource Pack Bypass)
 - Auto-Copy Screenshots
+- Hide Pumpkin Overlay
+- Lower Fire & Shield (Customizable)
 - Turn off different types of Fog individually or all together
 
 ## Fullbright / Gamma / Night Vision
@@ -87,6 +89,16 @@ When taking screenshots, the images will be automatically copied to the clipboar
 
 Toggleable in the settings
 
+## Several Visual Modifications
+
+- Hide the pumpkin on head overlay
+- Lower fire overlay (customizable)
+- Lower shield (customizable)
+
+#### Usage
+
+Toggle / Customize in the config under the category `Visual Modifications`
+
 ## Custom Fog
 
 Allows you to enable / disable ALL types of fogs. See comparison in the nether for Terrain Fog below
@@ -99,7 +111,6 @@ See all fog types in config under `Fog` category. Turn them off to your likings.
 
 **Caution**: Disabling fogs, especially darkness, blindness, lava and water fogs could be considered cheating or an unfair advantage by some players or server administrators.
  
-
 # Translations
 
 `en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)

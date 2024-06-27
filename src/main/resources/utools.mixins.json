@@ -13,8 +13,11 @@
     "ClientTimeMixin",
     "ClientWeatherMixin",
     "CopyScreenshotMixin",
+    "LowFireOverlayMixin",
+    "LowShieldMixin",
     "FogMixin",
     "MainMixin",
+    "NoPumpkinOverlayMixin",
     "SimpleOptionMixin",
     "UnpinTexturePacksMixin",
     "ZoomMixin"
