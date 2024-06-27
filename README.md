@@ -14,24 +14,27 @@ _Simple tools for the survival experience. This should act as a replacement to h
 # Features
 
 ## Short Overview
-- Fullbright / Custom Gamma
+- Fullbright / Custom Gamma / Night Vision
 - Zoom
 - Light Overlay
 - Client Side Time & Weather
 - Unpin all texture packs (Forced Server Resource Pack Bypass)
 - Auto-Copy Screenshots
 
-## Fullbright / Gamma
+## Fullbright / Gamma / Night Vision
 
 ![Gamma Comparison](assets/gammacomparism.png)
 
-Change your Gamma above the normal limits. The intended usage is to get Fullbright (Night Vision), but the Gamma can also be changed to a low value.
+Change your Gamma above the normal limits. The intended usage is to get Fullbright, but the Gamma can also be changed to a low value.
+If you're using shaders, you should use Night Vision instead of custom gamma.
 
 #### Usage
 
 Use `/fullbright` or the `Toggle Fullbright` keybinding to switch between 1500% (Max) or 100% (Default) gamma.
 
 Use `/fullbright [value]` to change your gamma to any positive value.!
+
+Use the `Toggle Nightvision` keybinding to toggle the clientside night vision effect.
 
 You can toggle the normal / fullbright Gamma values in the settings (Accessible via [ModMenu](https://modrinth.com/mod/modmenu))
 
