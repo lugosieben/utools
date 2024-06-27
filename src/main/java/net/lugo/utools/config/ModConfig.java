@@ -17,6 +17,10 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 0,max = 1500)
     public int fullGammaPercentage = 1500;
 
+    @ConfigEntry.Category("Fullbright")
+    @ConfigEntry.Gui.Tooltip
+    public boolean useNightVisionInstead = false;
+
     @ConfigEntry.Category("Zoom")
     public int zoomMultiplier = 3;
 

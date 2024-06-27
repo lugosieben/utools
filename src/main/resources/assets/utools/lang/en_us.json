@@ -10,6 +10,8 @@
   "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Gamma",
   "text.utools.message.gammaPercentage": "Gamma: %d%%",
   "text.utools.message.nightVision": "Night Vision %d",
+  "text.autoconfig.utools.option.useNightVisionInstead": "Use Night Vision instead",
+  "text.autoconfig.utools.option.useNightVisionInstead.@Tooltip": "Recommended for using with shaders",
 
 
   "key.utools.zoom": "Zoom",

@@ -16,7 +16,6 @@ public class KeyBindings {
 
     public static void registerKeybinds() {
         registerFullbrightGammaKey();
-        registerFullbrightNVKey();
         registerZoomKey();
         registerLightOverlayKey();
     }
@@ -27,18 +26,13 @@ public class KeyBindings {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (fullbrightKey.wasPressed()) {
-                FullBright.toggleGamma();
-            }
-        });
-    }
-
-    private static void registerFullbrightNVKey() {
-        KeyBinding fullbrightKey = new KeyBinding(BASE_KEY + ".fullbrightNVToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
-        KeyBindingHelper.registerKeyBinding(fullbrightKey);
-
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (fullbrightKey.wasPressed()) {
-                FullBright.toggleNightVision();
+                if (UTools.getConfig().useNightVisionInstead) {
+                    FullBright.toggleNightVision();
+                    FullBright.resetGamma();
+                } else {
+                    FullBright.toggleGamma();
+                    FullBright.resetNV();
+                }
             }
         });
     }

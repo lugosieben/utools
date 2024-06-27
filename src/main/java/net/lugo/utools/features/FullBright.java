@@ -4,6 +4,7 @@ import net.lugo.utools.UTools;
 import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.PlayerEffects;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.MutableText;
@@ -43,5 +44,15 @@ public class FullBright {
             MutableText message = Text.translatable("text.utools.message.nightVision", "off");
             HudMessage.show(message, Formatting.RED);
         }
+    }
+
+    public static void resetGamma() {
+        if (gamma.getValue() > 1) gamma.setValue((double) UTools.getConfig().normalGammaPercentage / 100);
+    }
+
+    public static void resetNV() {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null || !player.hasStatusEffect(StatusEffects.NIGHT_VISION)) return;
+        player.removeStatusEffect(StatusEffects.NIGHT_VISION);
     }
 }
