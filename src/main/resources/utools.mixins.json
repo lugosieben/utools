@@ -14,6 +14,7 @@
     "ClientWeatherMixin",
     "CopyScreenshotMixin",
     "MainMixin",
+    "NoPumpkinOverlayMixin",
     "SimpleOptionMixin",
     "ZoomMixin",
     "UnpinTexturePacksMixin"
