@@ -8,10 +8,10 @@ public class ClientTime {
     }
 
     public enum ClientTimeType {
-        Disabled,
-        Day,
-        Midnight,
-        Night,
-        Noon
+        DISABLED,
+        DAY,
+        MIDNIGHT,
+        NIGHT,
+        NOON
     }
 }
