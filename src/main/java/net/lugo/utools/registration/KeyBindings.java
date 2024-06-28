@@ -1,7 +1,8 @@
-package net.lugo.utools;
+package net.lugo.utools.registration;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.lugo.utools.UTools;
 import net.lugo.utools.features.FullBright;
 import net.lugo.utools.features.LightOverlay;
 import net.lugo.utools.features.Zoom;

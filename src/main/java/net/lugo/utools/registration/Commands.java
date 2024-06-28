@@ -1,4 +1,4 @@
-package net.lugo.utools;
+package net.lugo.utools.registration;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.lugo.utools.command.ClientTimeCommand;

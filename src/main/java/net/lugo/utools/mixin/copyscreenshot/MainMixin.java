@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.copyscreenshot;
 
 import net.minecraft.client.main.Main;
 import org.spongepowered.asm.mixin.Mixin;

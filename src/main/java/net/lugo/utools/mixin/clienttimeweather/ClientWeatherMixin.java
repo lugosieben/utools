@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.clienttimeweather;
 
 import net.lugo.utools.UTools;
 import net.minecraft.world.World;

@@ -32,7 +32,7 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;
     @ConfigEntry.Category("ClientTimeWeather")
-    public ClientTimeType clientTimeType = ClientTimeType.Disabled;
+    public ClientTimeType clientTimeType = ClientTimeType.DISABLED;
     
     @ConfigEntry.Category("VisualModifications")
     public boolean hidePumpkinOverlay = false;

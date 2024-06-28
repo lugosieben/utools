@@ -3,23 +3,22 @@
   "package": "net.lugo.utools.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ModEntityDataSaver",
-    "SimpleOptionMixin"
+    "fullbright.InvalidGammaValuesMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ClientTimeMixin",
-    "ClientWeatherMixin",
-    "CopyScreenshotMixin",
-    "LowFireOverlayMixin",
-    "LowShieldMixin",
-    "FogMixin",
-    "MainMixin",
-    "NoPumpkinOverlayMixin",
-    "SimpleOptionMixin",
-    "UnpinTexturePacksMixin",
-    "ZoomMixin"
+    "clienttimeweather.ClientTimeMixin",
+    "clienttimeweather.ClientWeatherMixin",
+    "copyscreenshot.CopyScreenshotMixin",
+    "visualmods.LowFireOverlayMixin",
+    "visualmods.LowShieldMixin",
+    "fog.FogMixin",
+    "copyscreenshot.MainMixin",
+    "visualmods.NoPumpkinOverlayMixin",
+    "fullbright.InvalidGammaValuesMixin",
+    "unpintexturepacks.UnpinTexturePacksMixin",
+    "zoom.ZoomMixin"
   ]
 }

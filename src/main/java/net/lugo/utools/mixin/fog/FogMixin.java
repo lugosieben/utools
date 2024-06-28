@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.fog;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.lugo.utools.UTools;
