@@ -1,4 +1,4 @@
-package net.lugo.utools;
+package net.lugo.utools.registration;
 
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.lugo.utools.features.LightOverlay;

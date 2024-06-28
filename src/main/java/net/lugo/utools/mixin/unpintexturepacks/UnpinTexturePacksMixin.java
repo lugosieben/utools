@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.unpintexturepacks;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.lugo.utools.UTools;

@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.fullbright;
 
 /* CODE FROM  https://github.com/Sjouwer/gamma-utils/blob/1.20.5/src/main/java/io/github/sjouwer/gammautils/mixin/MixinSimpleOption.java */
 
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SimpleOption.class)
-public class SimpleOptionMixin<T> {
+public class InvalidGammaValuesMixin<T> {
 
     @Shadow
     @Final

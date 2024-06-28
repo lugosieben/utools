@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.zoom;
 
 import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;

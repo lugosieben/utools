@@ -1,4 +1,4 @@
-package net.lugo.utools.mixin;
+package net.lugo.utools.mixin.visualmods;
 
 import net.lugo.utools.UTools;
 import net.minecraft.client.MinecraftClient;
