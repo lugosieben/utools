@@ -22,6 +22,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Auto-Copy Screenshots
 - Hide Pumpkin Overlay
 - Lower Fire & Shield (Customizable)
+- Show Map in Boat while moving
 - Turn off different types of Fog individually or all together
 
 ## Fullbright / Gamma / Night Vision
@@ -94,6 +95,7 @@ Toggleable in the settings
 - Hide the pumpkin on head overlay
 - Lower fire overlay (customizable)
 - Lower shield (customizable)
+- Show map in boat while moving
 
 #### Usage
 

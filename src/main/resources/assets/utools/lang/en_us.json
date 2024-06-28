@@ -43,6 +43,7 @@
   "text.autoconfig.utools.option.hidePumpkinOverlay": "Hide Pumpkin Overlay",
   "text.autoconfig.utools.option.lowFireModifier": "Lower Fire (%)",
   "text.autoconfig.utools.option.lowShieldModifier": "Lower Shield (%)",
+  "text.autoconfig.utools.option.mapInBoat": "Show Map in Boat",
   
   "text.autoconfig.utools.category.Fog": "Fog",
   "text.autoconfig.utools.option.turnOffAllFogs": "Turn off all Fogs",

@@ -42,6 +42,8 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("VisualModifications")
     @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
     public int lowShieldModifier = 0;
+    @ConfigEntry.Category("VisualModifications")
+    public boolean mapInBoat = false;
   
     @ConfigEntry.Category("Fog")
     public boolean turnOffAllFogs = false;

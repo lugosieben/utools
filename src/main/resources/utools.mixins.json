@@ -12,13 +12,14 @@
     "clienttimeweather.ClientTimeMixin",
     "clienttimeweather.ClientWeatherMixin",
     "copyscreenshot.CopyScreenshotMixin",
-    "visualmods.LowFireOverlayMixin",
-    "visualmods.LowShieldMixin",
-    "fog.FogMixin",
     "copyscreenshot.MainMixin",
-    "visualmods.NoPumpkinOverlayMixin",
+    "fog.FogMixin",
     "fullbright.InvalidGammaValuesMixin",
     "unpintexturepacks.UnpinTexturePacksMixin",
+    "visualmods.LowFireOverlayMixin",
+    "visualmods.LowShieldMixin",
+    "visualmods.MapInBoatMixin",
+    "visualmods.NoPumpkinOverlayMixin",
     "zoom.ZoomMixin"
   ]
 }
