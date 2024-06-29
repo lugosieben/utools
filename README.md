@@ -24,6 +24,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Lower Fire & Shield (Customizable)
 - Show Map in Boat while moving
 - Turn off different types of Fog individually or all together
+- Auto-Attack
 
 ## Fullbright / Gamma / Night Vision
 
@@ -113,6 +114,14 @@ See all fog types in config under `Fog` category. Turn them off to your likings.
 
 **Caution**: Disabling fogs, especially darkness, blindness, lava and water fogs could be considered cheating or an unfair advantage by some players or server administrators.
  
+## Auto-Attack
+
+Automatically clicks the attack button when your hit cooldown has finished.
+
+#### Usage
+
+Press the `Toogle Autoattack` keybinding to toggle on/off.
+
 # Translations
 
 `en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
