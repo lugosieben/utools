@@ -117,7 +117,7 @@ See all fog types in config under `Fog` category. Turn them off to your likings.
 
 `en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
 
-`de_de` German: [@Kolpixx](https://github.com/Kolpixx)
+`de_de` German: [@Kolpixx](https://github.com/Kolpixx) & [@lugosieben](https://github.com/lugosieben)
 
 `es_es` Spanish: [@lugosieben](https://github.com/lugosieben)
 

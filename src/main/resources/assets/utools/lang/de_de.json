@@ -1,27 +1,46 @@
 {
   "key.categories.utools": "UTools",
-  "text.autoconfig.utools.title": "UTools",
-
-
-  "key.utools.fullbrightToggle": "Fullbright umschalten",
-  "text.autoconfig.utools.option.normalGammaPercentage": "Normale Helligkeit",
-  "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Helligkeit",
-  "text.utools.message.gammaPercentage": "Helligkeit: %d%%",
-
-
+  "key.utools.fullbrightGammaToggle": "Fullbright umschalten",
+  "key.utools.lightOverlayToggle": "Lichtlevel umschalten",
   "key.utools.zoom": "Zoom",
+  "text.autoconfig.utools.category.ClientTimeWeather": "Client Zeit/Wetter",
+  "text.autoconfig.utools.category.Fog": "Nebel",
+  "text.autoconfig.utools.category.Fullbright": "Fullbright",
+  "text.autoconfig.utools.category.VisualModifications": "Visuelle Modifikationen",
+  "text.autoconfig.utools.category.Zoom": "Zoom",
+  "text.autoconfig.utools.category.default": "Andere",
+  "text.autoconfig.utools.option.blindnessFog": "Blindheitsnebel",
+  "text.autoconfig.utools.option.clientTimeType": "Client Zeit",
+  "text.autoconfig.utools.option.clientWeatherClear": "Kein Client Regen",
+  "text.autoconfig.utools.option.copyScreenshots": "Screenshots in die Zwischenablage kopieren",
+  "text.autoconfig.utools.option.darknessFog": "Dunkelheitsnebel",
+  "text.autoconfig.utools.option.fullGammaPercentage": "Fullbright Helligkeit",
+  "text.autoconfig.utools.option.hidePumpkinOverlay": "Kürbisoverlay verstecken",
+  "text.autoconfig.utools.option.lavaFog": "Lavanebel",
+  "text.autoconfig.utools.option.lightOverlayThreshold": "Lichtlevel Beginn",
+  "text.autoconfig.utools.option.lowFireModifier": "Niedrigeres Feuer (%)",
+  "text.autoconfig.utools.option.lowShieldModifier": "Niedriges Schild (%)",
+  "text.autoconfig.utools.option.mapInBoat": "Karte zeigen während dem Bootfahren",
+  "text.autoconfig.utools.option.normalGammaPercentage": "Normale Helligkeit",
+  "text.autoconfig.utools.option.powderSnowFog": "Puderschneenebel",
+  "text.autoconfig.utools.option.skyFog": "Himmelsnebel",
+  "text.autoconfig.utools.option.terrainFog": "Normaler- / Terrainnebel",
+  "text.autoconfig.utools.option.turnOffAllFogs": "Alle Nebel ausschalten",
+  "text.autoconfig.utools.option.unpinAllTexturePacks": "Alle Resourcenpakete abheften",
+  "text.autoconfig.utools.option.unpinAllTexturePacks.@Tooltip": "Hiermit kannst du auch Serverresourcenpakete bewegen",
+  "text.autoconfig.utools.option.useNightVisionInstead": "Stattdessen Nachtsicht verwenden",
+  "text.autoconfig.utools.option.useNightVisionInstead.@Tooltip": "Verwende dies am besten während dem Benutzen von Shadern",
+  "text.autoconfig.utools.option.waterFog": "Wassernebel",
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplikator",
   "text.autoconfig.utools.option.zoomSpeed": "Zoom Geschwindigkeit",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Wert von 0 bis 1",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Direkt",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[2]": "0 = Nie",
-
-	
-  "key.utools.lightOverlayToggle": "Lichtlevel umschalten",
-  "text.autoconfig.utools.option.lightOverlayThreshold": "Lichtlevel Beginn",
-  "text.utools.message.lightOverlayToggle.on": "Lichtlevel §2an",
+  "text.autoconfig.utools.title": "UTools",
+  "text.utools.message.copyScreenshot.fail": "Kopieren des Screenshots fehlgeschlagen.",
+  "text.utools.message.copyScreenshot.success": "Screenshot kopiert.",
+  "text.utools.message.gammaPercentage": "Helligkeit: %d%%",
   "text.utools.message.lightOverlayToggle.off": "Lichtlevel §4aus",
-
-  "text.autoconfig.utools.option.clientTimeType": "Client Zeit",
-  "text.autoconfig.utools.option.clientWeatherClear": "Kein Client Regen"
+  "text.utools.message.lightOverlayToggle.on": "Lichtlevel §2an",
+  "text.utools.message.nightVision": "Nachtsicht %d"
 }
