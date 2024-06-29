@@ -55,5 +55,9 @@
   "text.autoconfig.utools.option.waterFog": "Water Fog",
   "text.autoconfig.utools.option.skyFog": "Sky Fog",
 
+  "key.utools.autoAttackToggle": "Toggle AutoAttack",
+  "text.utools.message.autoAttackToggle.on": "AutoAttack §2on",
+  "text.utools.message.autoAttackToggle.off": "AutoAttack §4off",
+
   "text.autoconfig.utools.category.default": "Other"
 }
