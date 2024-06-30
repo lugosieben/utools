@@ -26,7 +26,6 @@ public class Zoom {
         isZooming = false;
         lastGoal = latestEffectiveZoom;
         t = 0f;
-        UTools.getLogger().info(String.valueOf(lastGoal));
         goal = 1D;
         MC.options.smoothCameraEnabled = false;
     }

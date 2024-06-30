@@ -5,6 +5,7 @@ import net.lugo.utools.UTools;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.lugo.utools.features.ClientTime.ClientTimeType;
+import net.lugo.utools.util.Easing;
 
 @Config(name = UTools.MOD_ID)
 public class ModConfig  implements ConfigData {
@@ -30,6 +31,8 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 0, max = 10)
     @ConfigEntry.Gui.Tooltip()
     public float zoomDuration = 2;
+    @ConfigEntry.Category("Zoom")
+    public Easing zoomEasing = Easing.EASE_OUT_EXPONENTIAL;
 
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;

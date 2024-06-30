@@ -2,7 +2,6 @@ package net.lugo.utools.mixin.zoom;
 
 import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;
-import net.lugo.utools.util.Easings;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +18,11 @@ public class ZoomMixin {
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
             Zoom.t += (tickDelta * 50) / 1000;
-            effectiveZoomMultiplier = Easings.easeOutExpo((float) Zoom.lastGoal, (float) Zoom.goal, Math.min(Zoom.t, UTools.getConfig().zoomDuration) / UTools.getConfig().zoomDuration);
+            effectiveZoomMultiplier = UTools.getConfig().zoomEasing.function.apply(
+                (float) Zoom.lastGoal,
+                (float) Zoom.goal,
+                Math.min(Zoom.t, UTools.getConfig().zoomDuration) / UTools.getConfig().zoomDuration
+            );
         } else {
             Zoom.t = 0f;
         }
