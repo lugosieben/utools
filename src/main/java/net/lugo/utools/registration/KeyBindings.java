@@ -3,6 +3,7 @@ package net.lugo.utools.registration;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.lugo.utools.UTools;
+import net.lugo.utools.features.AutoAttack;
 import net.lugo.utools.features.FullBright;
 import net.lugo.utools.features.LightOverlay;
 import net.lugo.utools.features.Zoom;
@@ -19,6 +20,7 @@ public class KeyBindings {
         registerFullbrightGammaKey();
         registerZoomKey();
         registerLightOverlayKey();
+        registerAutoAttackKey();
     }
 
     private static void registerFullbrightGammaKey() {
@@ -61,6 +63,17 @@ public class KeyBindings {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (lightOverlayKey.wasPressed()) {
                 LightOverlay.toggle();
+            }
+        });
+    }
+
+    private static void registerAutoAttackKey() {
+        KeyBinding autoAttackKey = new KeyBinding(BASE_KEY + ".autoAttackToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_F10, CATEGORY);
+        KeyBindingHelper.registerKeyBinding(autoAttackKey);
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (autoAttackKey.wasPressed()) {
+                AutoAttack.toggle();
             }
         });
     }
