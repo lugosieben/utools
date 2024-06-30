@@ -2,7 +2,6 @@ package net.lugo.utools.mixin.zoom;
 
 import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -19,25 +18,14 @@ public class ZoomMixin {
     }
 
     @Unique
-    MinecraftClient MC = MinecraftClient.getInstance();
-    @Unique
-    double latestZoomMultiplier = 1.0;
-
-    @Inject(at = @At("RETURN"), method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D",cancellable = true)
-    public void getZoomLevel(CallbackInfoReturnable<Double> callbackInfo) {
-        boolean isZooming = Zoom.isZooming();
-        double zoomMultiplier = 1.0;
+    double latestZoom = 1.0;
+    
+    @Inject(at = @At("RETURN"), method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D", cancellable = true)
+    public void getFov(CallbackInfoReturnable<Double> callbackInfo) {
         double fov = callbackInfo.getReturnValue();
 
-        if (isZooming) {
-            // Prevent Zoom values at 0 or below
-            int ConfigZoomMultiplier = UTools.getConfig().zoomMultiplier;
-            zoomMultiplier = ConfigZoomMultiplier > 0 ? (double) ConfigZoomMultiplier : 1.0;
-            MC.options.smoothCameraEnabled = true;
-        } else MC.options.smoothCameraEnabled = false;
-
-        double effectiveZoomMultiplier = lerp(latestZoomMultiplier, zoomMultiplier, UTools.getConfig().zoomSpeed);
-        latestZoomMultiplier = effectiveZoomMultiplier;
+        double effectiveZoomMultiplier = lerp(latestZoom, Zoom.goal, UTools.getConfig().zoomSpeed);
+        latestZoom = effectiveZoomMultiplier;
         callbackInfo.setReturnValue(fov / effectiveZoomMultiplier);
     }
 }

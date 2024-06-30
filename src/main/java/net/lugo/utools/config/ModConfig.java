@@ -22,8 +22,10 @@ public class ModConfig  implements ConfigData {
     public boolean useNightVisionInstead = false;
 
     @ConfigEntry.Category("Zoom")
-    public int zoomMultiplier = 3;
-
+    @ConfigEntry.Gui.Tooltip
+    public double zoomMultiplier = 3D;
+    @ConfigEntry.Category("Zoom")
+    public double scrollIncrement = 0.3D;
     @ConfigEntry.Category("Zoom")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 1)
     @ConfigEntry.Gui.Tooltip(count = 3)

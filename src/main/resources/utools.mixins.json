@@ -20,6 +20,7 @@
     "visualmods.LowShieldMixin",
     "visualmods.MapInBoatMixin",
     "visualmods.NoPumpkinOverlayMixin",
+    "zoom.MouseWheelMixin",
     "zoom.ZoomMixin"
   ]
 }

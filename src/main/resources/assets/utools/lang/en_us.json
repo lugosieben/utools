@@ -17,6 +17,7 @@
   "key.utools.zoom": "Zoom",
   "text.autoconfig.utools.category.Zoom": "Zoom",
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplier",
+  "text.autoconfig.utools.option.zoomMultiplier.@Tooltip": "Capped at 0.1 and 100",
   "text.autoconfig.utools.option.zoomSpeed": "Zoom Speed",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[0]": "Value from 0 to 1",
   "text.autoconfig.utools.option.zoomSpeed.@Tooltip[1]": "1 = Instant",
