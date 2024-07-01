@@ -32,7 +32,9 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public float zoomDuration = 2;
     @ConfigEntry.Category("Zoom")
-    public Easing zoomEasing = Easing.EASE_OUT_EXPONENTIAL;
+    public Easing zoomInEasing = Easing.EASE_OUT_EXPONENTIAL;
+    @ConfigEntry.Category("Zoom")
+    public Easing zoomOutEasing = Easing.EASE_OUT_EXPONENTIAL;
 
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;

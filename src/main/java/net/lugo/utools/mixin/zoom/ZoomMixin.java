@@ -2,6 +2,7 @@ package net.lugo.utools.mixin.zoom;
 
 import net.lugo.utools.UTools;
 import net.lugo.utools.features.Zoom;
+import net.lugo.utools.util.Easing;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,10 +16,11 @@ public class ZoomMixin {
     public void getFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Double> callbackInfo) {
         double fov = callbackInfo.getReturnValue();
         double effectiveZoomMultiplier = Zoom.goal;
+        Easing easing = Zoom.lastGoal >= Zoom.goal ? UTools.getConfig().zoomOutEasing : UTools.getConfig().zoomInEasing;
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
             Zoom.t += (tickDelta * 50) / 1000;
-            effectiveZoomMultiplier = UTools.getConfig().zoomEasing.function.apply(
+            effectiveZoomMultiplier = easing.function.apply(
                 (float) Zoom.lastGoal,
                 (float) Zoom.goal,
                 Math.min(Zoom.t, UTools.getConfig().zoomDuration) / UTools.getConfig().zoomDuration
