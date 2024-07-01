@@ -47,6 +47,8 @@ public class ModConfig  implements ConfigData {
     public int lowTotemModifier = 0;
     @ConfigEntry.Category("VisualModifications")
     public boolean mapInBoat = false;
+    @ConfigEntry.Category("VisualModifications")
+    public float totemPopSize = 1;
   
     @ConfigEntry.Category("Fog")
     public boolean turnOffAllFogs = false;
