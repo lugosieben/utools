@@ -18,6 +18,7 @@
     "unpintexturepacks.UnpinTexturePacksMixin",
     "visualmods.LowFireOverlayMixin",
     "visualmods.LowShieldMixin",
+    "visualmods.LowTotemMixin",
     "visualmods.MapInBoatMixin",
     "visualmods.NoPumpkinOverlayMixin",
     "zoom.ZoomMixin"
