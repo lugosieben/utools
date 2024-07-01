@@ -4,7 +4,7 @@ import net.lugo.utools.UTools;
 import net.minecraft.client.MinecraftClient;
 
 public class Zoom {
-    private static final double MIN_ZOOM = 0.1D;
+    private static final double MIN_ZOOM = 1D;
     private static final double MAX_ZOOM = 100D;
     
     private static final MinecraftClient MC = MinecraftClient.getInstance();
