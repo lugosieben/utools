@@ -43,12 +43,13 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
     public int lowShieldModifier = 0;
     @ConfigEntry.Category("VisualModifications")
-    @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
-    public int lowTotemModifier = 0;
-    @ConfigEntry.Category("VisualModifications")
     public boolean mapInBoat = false;
     @ConfigEntry.Category("VisualModifications")
-    public float totemPopSize = 1;
+    @ConfigEntry.BoundedDiscrete(min=0, max = 100)
+    public float totemSize = 100;
+    @ConfigEntry.Category("VisualModifications")
+    @ConfigEntry.BoundedDiscrete(min=0, max = 100)
+    public float totemPopSize = 100;
   
     @ConfigEntry.Category("Fog")
     public boolean turnOffAllFogs = false;
