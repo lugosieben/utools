@@ -35,6 +35,8 @@ public class ModConfig  implements ConfigData {
     public Easing zoomInEasing = Easing.EASE_OUT_EXPONENTIAL;
     @ConfigEntry.Category("Zoom")
     public Easing zoomOutEasing = Easing.EASE_OUT_EXPONENTIAL;
+    @ConfigEntry.Category("Zoom")
+    public boolean zoomSmoothCam = true;
 
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;

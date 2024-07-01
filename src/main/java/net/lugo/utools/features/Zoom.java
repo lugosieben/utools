@@ -20,14 +20,14 @@ public class Zoom {
         lastGoal = latestEffectiveZoom;
         t = 0f;
         goal = Math.clamp(UTools.getConfig().zoomMultiplier, MIN_ZOOM, MAX_ZOOM);
-        MC.options.smoothCameraEnabled = true;
+        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCameraEnabled = true;
     }
     public static void off () {
         isZooming = false;
         lastGoal = latestEffectiveZoom;
         t = 0f;
         goal = 1f;
-        MC.options.smoothCameraEnabled = false;
+        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCameraEnabled = false;
     }
     public static void increment (float amount) {
         lastGoal = latestEffectiveZoom;
