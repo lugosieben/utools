@@ -24,9 +24,9 @@ public class ModConfig  implements ConfigData {
 
     @ConfigEntry.Category("Zoom")
     @ConfigEntry.Gui.Tooltip
-    public double zoomMultiplier = 3D;
+    public float zoomMultiplier = 3f;
     @ConfigEntry.Category("Zoom")
-    public double scrollIncrement = 0.3D;
+    public float scrollIncrement = 0.3f;
     @ConfigEntry.Category("Zoom")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 10)
     @ConfigEntry.Gui.Tooltip()

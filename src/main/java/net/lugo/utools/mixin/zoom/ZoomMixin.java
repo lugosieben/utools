@@ -15,14 +15,14 @@ public class ZoomMixin {
     @Inject(at = @At("RETURN"), method = "getFov(Lnet/minecraft/client/render/Camera;FZ)D", cancellable = true)
     public void getFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Double> callbackInfo) {
         double fov = callbackInfo.getReturnValue();
-        double effectiveZoomMultiplier = Zoom.goal;
+        float effectiveZoomMultiplier = Zoom.goal;
         Easing easing = Zoom.lastGoal >= Zoom.goal ? UTools.getConfig().zoomOutEasing : UTools.getConfig().zoomInEasing;
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
             Zoom.t += (tickDelta * 50) / 1000;
             effectiveZoomMultiplier = easing.function.apply(
-                (float) Zoom.lastGoal,
-                (float) Zoom.goal,
+                Zoom.lastGoal,
+                Zoom.goal,
                 Math.min(Zoom.t, UTools.getConfig().zoomDuration) / UTools.getConfig().zoomDuration
             );
         } else {
