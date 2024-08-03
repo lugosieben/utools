@@ -96,6 +96,9 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("GuiInfo")
     public boolean compassDisplay = false;
 
+    @ConfigEntry.Category("Gameplay")
+    public boolean keepMining = false;
+
     @ConfigEntry.BoundedDiscrete(min=1,max = 15)
     public int lightOverlayThreshold = 1;
     
