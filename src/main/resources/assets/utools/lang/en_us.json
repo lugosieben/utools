@@ -1,6 +1,6 @@
 {
   "key.categories.utools": "UTools",
-  "text.autoconfig.utools.title": "UTools",
+  "text.autoconfig.utools.title": "UTools - §ePlease report issues and suggest features at §nhttps://github.com/lugosieben/utools/issues",
 
 
   "text.autoconfig.utools.category.Fullbright": "Fullbright",
@@ -81,6 +81,9 @@
   "text.utools.info.pingInfo": "Ping: %s",
   "text.utools.info.posInfo": "Position: %s",
   "text.utools.info.compassInfo": "Facing: %s",
+
+  "text.autoconfig.utools.category.Gameplay": "Gameplay",
+  "text.autoconfig.utools.option.keepMining": "Keep Mining when switching Tools",
 
   "key.utools.hidePlayersToggle": "Toggle Hiding other Players",
   "text.utools.message.hidePlayersToggle.on": "Hiding other players",
