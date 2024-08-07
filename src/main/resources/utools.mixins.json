@@ -23,8 +23,6 @@
     "visualmods.SmallTotemPopMixin",
     "zoom.MouseSensitivityMixin",
     "zoom.MouseWheelMixin",
-    "zoom.ZoomMixin",
-    "visualmods.ShowBarriersMixin",
-    "fullbright.InvalidGammaValuesMixin"
+    "zoom.ZoomMixin"
   ]
 }
