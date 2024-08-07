@@ -82,9 +82,6 @@
   "text.utools.info.posInfo": "Position: %s",
   "text.utools.info.compassInfo": "Facing: %s",
 
-  "text.autoconfig.utools.category.Gameplay": "Gameplay",
-  "text.autoconfig.utools.option.keepMining": "Keep Mining when switching Tools",
-
   "key.utools.hidePlayersToggle": "Toggle Hiding other Players",
   "text.utools.message.hidePlayersToggle.on": "Hiding other players",
   "text.utools.message.hidePlayersToggle.off": "Showing other players",
