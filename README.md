@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <p align="center">
 <img height="200" src="src/main/resources/assets/utools/icon.png" alt="Logo of UTools">
 </p>
@@ -28,6 +29,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Show Barrier blocks
 - Turn off different types of Fog individually or all together
 - Auto-Attack
+- Keep Mining when switching Tools (fixes annoying quartz mining with a mending tool)
 
 ## Fullbright / Gamma / Night Vision
 
@@ -141,6 +143,15 @@ Allows you to hide all other players with a keybinding.
 #### Usage
 
 Press the `Toggle Hiding other Players` keybinding to toggle.
+
+## Keep Mining when switching tools
+
+Allows you to keep your Mining progress on your block when switching tool / getting mended.
+Fixes annoying restart of block breaking everytime you break a quartz ore with mending.
+
+#### Usage
+
+Toggleable in the settings
 
 # License
 
