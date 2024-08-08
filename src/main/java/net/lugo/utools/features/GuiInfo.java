@@ -6,7 +6,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.PlayerListEntry;
-import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -19,7 +18,7 @@ public class GuiInfo {
     private static final MinecraftClient MC = MinecraftClient.getInstance();
     private static final TextRenderer textRenderer = MC.textRenderer;
 
-    public static void hudRenderCallback(DrawContext drawContext, RenderTickCounter ignoredRenderTickCounter) {
+    public static void hudRenderCallback(DrawContext drawContext, float ignoredRenderTickCounter) {
         if (MC == null || MC.player == null) return;
         MutableText renderString = Text.empty();
 

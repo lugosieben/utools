@@ -23,21 +23,21 @@ public class OverlayRenderer {
 
         Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();
         Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+        BufferBuilder buffer = tessellator.getBuffer();
+        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE);
 
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
-        RenderSystem.setShaderTexture(0, Identifier.tryParse(UTools.MOD_ID, "textures/cross.png"));
+        RenderSystem.setShader(GameRenderer::getPositionColorTexProgram);
+        RenderSystem.setShaderTexture(0, new Identifier(UTools.MOD_ID, "textures/cross.png"));
         RenderSystem.enableDepthTest();
 
-        RenderSystem.setShaderColor(1f,1f,1f,1f);
+        RenderSystem.setShaderColor(r, g, b,1f);
 
-        buffer.vertex(positionMatrix, 0,1,0).color(1f,1f,1f,1f).texture(0f,0f).light(0, 0);
-        buffer.vertex(positionMatrix, 0,1,1).color(1f,1f,1f,1f).texture(0f,1f).light(0, 0);
-        buffer.vertex(positionMatrix, 1,1,1).color(1f,1f,1f,1f).texture(1f,1f).light(0, 0);
-        buffer.vertex(positionMatrix, 1,1,0).color(1f,1f,1f,1f).texture(1f,0f).light(0, 0);
+        buffer.vertex(positionMatrix, 0,1,0).color(1f,1f,1f,1f).texture(0f,0f).light(0, 0).next();
+        buffer.vertex(positionMatrix, 0,1,1).color(1f,1f,1f,1f).texture(0f,1f).light(0, 0).next();
+        buffer.vertex(positionMatrix, 1,1,1).color(1f,1f,1f,1f).texture(1f,1f).light(0, 0).next();
+        buffer.vertex(positionMatrix, 1,1,0).color(1f,1f,1f,1f).texture(1f,0f).light(0, 0).next();
 
-        RenderSystem.setShaderColor(r, g, b, 1f);
-        BufferRenderer.drawWithGlobalProgram(buffer.end());
+        tessellator.draw();
 
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
     }
