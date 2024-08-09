@@ -40,6 +40,7 @@ def replaceProperties = [
 		java_version: java_version,
 		loader_version: loader_version,
 		minecraft_version: minecraft_version,
+		minecraft_version_compatible: minecraft_version_compatible,
 		fabric_version: fabric_version,
 		cloth_version: cloth_version,
 		modmenu_version: modmenu_version,
@@ -62,9 +63,9 @@ java {
 	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
 	// if it is present.
 	// If you remove this line, sources will not be generated.
-	withSourcesJar()
+	// withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21 //.toVersion(java_version)
+	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
 }
 
