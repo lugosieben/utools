@@ -50,6 +50,7 @@
   "text.autoconfig.utools.category.VisualModifications": "Visual Modifications",
   "text.autoconfig.utools.option.hidePumpkinOverlay": "Hide Pumpkin Overlay",
   "text.autoconfig.utools.option.lowFireModifier": "Lower Fire (%)",
+  "text.autoconfig.utools.option.hideFireWhenResistant": "Hide Fire Overlay when Fire Resistant",
   "text.autoconfig.utools.option.lowShieldModifier": "Lower Shield (%)",
   "text.autoconfig.utools.option.mapInBoat": "Show Map in Boat",
   "text.autoconfig.utools.option.totemSize": "Totem Size (%)",

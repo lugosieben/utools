@@ -23,6 +23,7 @@ _Simple tools for the survival experience. This should act as a replacement to h
 - Auto-Copy Screenshots
 - Hide Pumpkin Overlay
 - Lower Fire & Shield (Customizable)
+- Hide Fire Overlay when Fire-Resistant
 - Show Map in Boat while moving
 - Smaller totems
 - Hide other players
@@ -100,6 +101,7 @@ Toggleable in the settings
 - Hide the pumpkin on head overlay
 - Lower fire overlay (customizable)
 - Lower shield (customizable)
+- Hide Fire Overlay when Fire-Resistant
 - Show map in boat while moving
 - Smaller totem in hand / in pop animation
 - Show barrier blocks
@@ -128,14 +130,6 @@ Automatically clicks the attack button when your hit cooldown has finished.
 
 Press the `Toogle Autoattack` keybinding to toggle on/off.
 
-# Translations
-
-`en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
-
-`de_de` German: [@Kolpixx](https://github.com/Kolpixx) & [@lugosieben](https://github.com/lugosieben)
-
-`es_es` Spanish: [@lugosieben](https://github.com/lugosieben)
-
 ## Hide other players
 
 Allows you to hide all other players with a keybinding.
@@ -152,6 +146,14 @@ Fixes annoying restart of block breaking everytime you break a quartz ore with m
 #### Usage
 
 Toggleable in the settings
+
+# Translations
+
+`en_en` English: [@lugosieben](https://github.com/lugosieben) (Must be updated with any new feature!)
+
+`de_de` German: [@Kolpixx](https://github.com/Kolpixx) & [@lugosieben](https://github.com/lugosieben)
+
+`es_es` Spanish: [@lugosieben](https://github.com/lugosieben)
 
 # License
 
