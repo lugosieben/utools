@@ -16,6 +16,7 @@ public class KeyBindings {
     public static void registerKeybinds() {
         registerFullbrightGammaKey();
         registerZoomKey();
+        registerZoomToggleKey();
         registerLightOverlayKey();
         registerAutoAttackKey();
         registerHidePlayersKey();
@@ -50,6 +51,21 @@ public class KeyBindings {
             } else if (!zoomKey.isPressed() && lastZoomKeyPressedState) {
                 lastZoomKeyPressedState = false;
                 Zoom.off();
+            }
+        });
+    }
+
+    private static void registerZoomToggleKey() {
+        KeyBinding zoomToggleKey = new KeyBinding(BASE_KEY + ".zoomToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
+        KeyBindingHelper.registerKeyBinding(zoomToggleKey);
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (zoomToggleKey.wasPressed()) {
+                if (Zoom.isZooming) {
+                    Zoom.off();
+                } else {
+                    Zoom.on();
+                }
             }
         });
     }
