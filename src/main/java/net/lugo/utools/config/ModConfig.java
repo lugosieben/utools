@@ -55,6 +55,8 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
     public int lowFireModifier = 0;
     @ConfigEntry.Category("VisualModifications")
+    public boolean hideFireWhenResistant = false;
+    @ConfigEntry.Category("VisualModifications")
     @ConfigEntry.BoundedDiscrete(min=-100, max = 0)
     public int lowShieldModifier = 0;
     @ConfigEntry.Category("VisualModifications")
