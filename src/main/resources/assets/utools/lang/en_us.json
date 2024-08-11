@@ -15,6 +15,7 @@
 
 
   "key.utools.zoom": "Zoom",
+  "key.utools.zoomToggle": "Zoom Toggle",
   "text.autoconfig.utools.category.Zoom": "Zoom",
   "text.autoconfig.utools.option.zoomMultiplier": "Zoom Multiplier",
   "text.autoconfig.utools.option.zoomMultiplier.@Tooltip": "Capped at 0.1 and 100",
