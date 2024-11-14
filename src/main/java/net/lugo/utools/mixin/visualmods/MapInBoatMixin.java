@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ClientPlayerEntity.class)
 public class MapInBoatMixin {
     @Inject(method = "tickRiding()V", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/entity/vehicle/BoatEntity;setInputs(ZZZZ)V",
+            target = "Lnet/minecraft/entity/vehicle/AbstractBoatEntity;setInputs(ZZZZ)V",
             shift = At.Shift.AFTER),
             cancellable = true)
     private void afterBoatMovement(CallbackInfo ci) {
