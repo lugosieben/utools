@@ -1,6 +1,5 @@
 package net.lugo.utools.mixin.fog;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.lugo.utools.UTools;
 import net.lugo.utools.config.ModConfig;
 import net.minecraft.block.enums.CameraSubmersionType;
@@ -16,7 +15,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BackgroundRenderer.class)
@@ -24,7 +22,7 @@ public class FogMixin {
     @Unique
     private static ModConfig CONFIG = UTools.getConfig();
 
-    @Inject(method = "applyFog", at = @At("RETURN"))
+    @Inject(method = "applyFog", at = @At("RETURN"), cancellable = true)
     private static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, Vector4f color, float viewDistance, boolean thickenFog, float tickDelta, CallbackInfoReturnable<Fog> cir) {
         CameraSubmersionType cameraSubmersionType = camera.getSubmersionType();
         Entity entity = camera.getFocusedEntity();
@@ -49,8 +47,7 @@ public class FogMixin {
                 || (terrain && !CONFIG.terrainFog);
 
         if (disableCurrentFog) {
-            Fog fog = new Fog(-8F, 1000000F, FogShape.CYLINDER, 1, 1, 1,1);
-            RenderSystem.setShaderFog(fog);
+            cir.setReturnValue(new Fog(-8F, 1000000F, FogShape.CYLINDER, 1, 1, 1,1));
         }
     }
 }
