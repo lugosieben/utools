@@ -2,19 +2,18 @@ package net.lugo.utools.mixin.hideplayers;
 
 import net.lugo.utools.features.HidePlayers;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.PlayerEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.render.Frustum;
+import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(PlayerEntityRenderer.class)
+@Mixin(EntityRenderer.class)
 public class HidePlayersMixin {
-    @Inject(method = "render(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At("HEAD"), cancellable = true)
-    private void render(AbstractClientPlayerEntity abstractClientPlayerEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
-        if (HidePlayers.get() && MinecraftClient.getInstance().player != abstractClientPlayerEntity) ci.cancel();
+    @Inject(method = "shouldRender", at = @At("RETURN"), cancellable = true)
+    private void shouldRender(Entity entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
+        if (HidePlayers.get() && entity.isPlayer() && entity != MinecraftClient.getInstance().player) cir.setReturnValue(false);
     }
 }
