@@ -48,6 +48,9 @@ public class ModConfig  implements ConfigData {
     public boolean clientWeatherClear = false;
     @ConfigEntry.Category("ClientTimeWeather")
     public ClientTimeType clientTimeType = ClientTimeType.DISABLED;
+    @ConfigEntry.Category("ClientTimeWeather")
+    @ConfigEntry.Gui.Tooltip()
+    public int customClientTime = 0;
     
     @ConfigEntry.Category("VisualModifications")
     public boolean hidePumpkinOverlay = false;

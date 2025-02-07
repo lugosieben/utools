@@ -40,6 +40,8 @@
   "text.autoconfig.utools.category.ClientTimeWeather": "Client Time/Weather",
   "text.autoconfig.utools.option.clientTimeType": "Client Time",
   "text.autoconfig.utools.option.clientWeatherClear": "No Client Rain",
+  "text.autoconfig.utools.option.customClientTime": "Custom Client Time",
+  "text.autoconfig.utools.option.customClientTime.@Tooltip": "Applies when Client Time is set to CUSTOM",
 
   "text.autoconfig.utools.option.unpinAllTexturePacks": "Unpin Texture Packs",
   "text.autoconfig.utools.option.unpinAllTexturePacks.@Tooltip": "Allows you to move server texture packs",

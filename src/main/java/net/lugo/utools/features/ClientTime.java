@@ -12,6 +12,7 @@ public class ClientTime {
         DAY,
         MIDNIGHT,
         NIGHT,
-        NOON
+        NOON,
+        CUSTOM
     }
 }

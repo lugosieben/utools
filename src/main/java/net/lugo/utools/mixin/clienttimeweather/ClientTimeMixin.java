@@ -18,6 +18,7 @@ public abstract class ClientTimeMixin {
             case NOON -> cir.setReturnValue((long) 6000);
             case NIGHT -> cir.setReturnValue((long) 13000);
             case MIDNIGHT -> cir.setReturnValue((long) 18000);
+            case CUSTOM -> cir.setReturnValue((long) UTools.getConfig().customClientTime);
         }
     }
 }
