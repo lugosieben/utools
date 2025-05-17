@@ -4,6 +4,7 @@ import net.lugo.utools.UTools;
 import net.lugo.utools.features.CopyScreenshot;
 import net.lugo.utools.util.HudMessage;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.client.util.ScreenshotRecorder;
 import net.minecraft.text.Text;
@@ -26,8 +27,8 @@ import java.util.function.Consumer;
 
 @Mixin(ScreenshotRecorder.class)
 public class CopyScreenshotMixin {
-    @Inject(method = "method_1661", at = @At("TAIL"))
-    private static void onScreenshot(NativeImage image, File file, Consumer<Text> textReceiver, CallbackInfo ci) {
+    @Inject(method = "saveScreenshot(Ljava/io/File;Lnet/minecraft/client/gl/Framebuffer;Ljava/util/function/Consumer;)V", at = @At("TAIL"))
+    private static void onScreenshot(File gameDirectory, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
         if (!UTools.getConfig().copyScreenshots) return;
         MinecraftClient MC = MinecraftClient.getInstance();
         try {
