@@ -31,21 +31,33 @@ public class CopyScreenshotMixin {
     private static void onScreenshot(File gameDirectory, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
         if (!UTools.getConfig().copyScreenshots) return;
         MinecraftClient MC = MinecraftClient.getInstance();
-        try {
-            File screenPath = new File(MC.runDirectory.getAbsolutePath(), "screenshots");
-            Optional<Path> lastScreenPath = Files.list(screenPath.toPath())
-                    .filter(f -> !Files.isDirectory(f))
-                    .max(Comparator.comparingLong(f -> f.toFile().lastModified()));
-            if (lastScreenPath.isEmpty()) return;
-            Image lastScreen = new ImageIcon(lastScreenPath.get().toString()).getImage();
-            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-            CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
-            clipboard.setContents(transferableImage, null);
+        new Thread(() -> {
+            try {
+                Thread.sleep(500);
 
-            HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
-        } catch (IOException e) {
-            HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
-            UTools.getLogger().error(e.toString());
-        }
+                File screenPath = new File(MC.runDirectory.getAbsolutePath(), "screenshots");
+                Optional<Path> lastScreenPath = Files.list(screenPath.toPath())
+                        .filter(f -> !Files.isDirectory(f))
+                        .max(Comparator.comparingLong(f -> f.toFile().lastModified()));
+                if (lastScreenPath.isEmpty()) return;
+                try {
+                    Image lastScreen = new ImageIcon(lastScreenPath.get().toString()).getImage();
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
+                    clipboard.setContents(transferableImage, null);
+                    MC.execute(() -> {
+                        HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
+                    });
+                } catch (Exception e) {
+                    MC.execute(() -> {
+                        HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
+                        UTools.getLogger().error(e.toString());
+                    });
+                }
+            } catch (IOException | InterruptedException e) {
+                UTools.getLogger().error(e.toString());
+            }
+        }).start();
+
     }
 }
