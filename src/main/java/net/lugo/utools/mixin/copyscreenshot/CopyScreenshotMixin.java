@@ -46,6 +46,11 @@ public class CopyScreenshotMixin {
                     Thread.sleep(50);
                 }
 
+                if (screenshotFile.length() == 0) {
+                    HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
+                    return;
+                }
+
                 Image lastScreen = new ImageIcon(lastScreenPath.get().toString()).getImage();
                 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                 CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
