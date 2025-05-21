@@ -39,22 +39,20 @@ public class CopyScreenshotMixin {
                         .max(Comparator.comparingLong(f -> f.toFile().lastModified()));
                 if (lastScreenPath.isEmpty()) return;
 
-                if (lastScreenPath.isPresent()) {
-                    File screenshotFile = lastScreenPath.get().toFile();
-                    long startTime = System.currentTimeMillis();
+                File screenshotFile = lastScreenPath.get().toFile();
+                long startTime = System.currentTimeMillis();
 
-                    while (screenshotFile.length() == 0 && System.currentTimeMillis() - startTime < 3000) {
-                        Thread.sleep(50);
-                    }
-
-                    Image lastScreen = new ImageIcon(lastScreenPath.get().toString()).getImage();
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                    CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
-                    clipboard.setContents(transferableImage, null);
-                    MC.execute(() -> {
-                        HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
-                    });
+                while (screenshotFile.length() == 0 && System.currentTimeMillis() - startTime < 3000) {
+                    Thread.sleep(50);
                 }
+
+                Image lastScreen = new ImageIcon(lastScreenPath.get().toString()).getImage();
+                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
+                clipboard.setContents(transferableImage, null);
+                MC.execute(() -> {
+                    HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
+                });
 
             } catch (Exception e) {
                 HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
