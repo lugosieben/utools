@@ -40,9 +40,7 @@ public class CopyScreenshotMixin {
                 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                 CopyScreenshot.TransferableImage transferableImage = new CopyScreenshot.TransferableImage(lastScreen);
                 clipboard.setContents(transferableImage, null);
-                MC.execute(() -> {
-                    HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA);
-                });
+                MC.execute(() -> HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.success"), Formatting.DARK_AQUA));
 
             } catch (Exception e) {
                 HudMessage.show(Text.translatable("text.utools.message.copyScreenshot.fail"), Formatting.RED);
