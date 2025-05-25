@@ -16,7 +16,7 @@ import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
 
 public class OverlayRenderer {
-    private static final RenderPipeline LINES_DEPTH_TEST_PIPELINE = RenderPipelines.register(
+    private static final RenderPipeline LIGHT_OVERLAY_PIPELINE = RenderPipelines.register(
         RenderPipeline.builder(RenderPipelines.POSITION_TEX_COLOR_SNIPPET)
             .withLocation(Identifier.of(UTools.MOD_ID, "pipeline/light_overlay"))
             .withCull(true)
@@ -25,12 +25,12 @@ public class OverlayRenderer {
             .build()
     );
 
-    private static final RenderLayer LINES_DEPTH_TEST = RenderLayer.of(
+    private static final RenderLayer LIGHT_OVERLAY_RENDERLAYER = RenderLayer.of(
         "utools/light_overlay",
         1024,
         false,
         true,
-        LINES_DEPTH_TEST_PIPELINE,
+        LIGHT_OVERLAY_PIPELINE,
         RenderLayer.MultiPhaseParameters.builder()
             .build(false)
     );
@@ -38,7 +38,7 @@ public class OverlayRenderer {
 
     public static void draw(WorldRenderContext context, Vec3d pos, int r, int g, int b, float offsetY) {
         VertexConsumerProvider.Immediate vcp = VertexConsumerProvider.immediate(new BufferAllocator(1024));
-        VertexConsumer vertexConsumer = vcp.getBuffer(LINES_DEPTH_TEST);
+        VertexConsumer vertexConsumer = vcp.getBuffer(LIGHT_OVERLAY_RENDERLAYER);
 
         Camera camera = context.camera();
         Vec3d transformedPos = pos.subtract(camera.getPos());
