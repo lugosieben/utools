@@ -7,6 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import net.lugo.utools.features.ClientTime.ClientTimeType;
 import net.lugo.utools.util.Easing;
 
+@SuppressWarnings("CanBeFinal")
 @Config(name = UTools.MOD_ID)
 public class ModConfig  implements ConfigData {
 

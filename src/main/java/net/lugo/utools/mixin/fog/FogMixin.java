@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BackgroundRenderer.class)
 public class FogMixin {
     @Unique
-    private static ModConfig CONFIG = UTools.getConfig();
+    private static final ModConfig CONFIG = UTools.getConfig();
 
     @Inject(method = "applyFog", at = @At("RETURN"), cancellable = true)
     private static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, Vector4f color, float viewDistance, boolean thickenFog, float tickDelta, CallbackInfoReturnable<Fog> cir) {
