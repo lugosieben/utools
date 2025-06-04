@@ -18,6 +18,7 @@ import java.awt.*;
 public class LightOverlay {
     private static boolean activated = false;
     private static final ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+    static MinecraftClient MC = MinecraftClient.getInstance();
 
     public static void toggle() {
         activated = !activated;
@@ -27,9 +28,10 @@ public class LightOverlay {
     }
 
     public static void renderEnd(WorldRenderContext context) {
-        MinecraftClient MC = MinecraftClient.getInstance();
         if (MC.player == null || MC.world == null || MC.isPaused() || !activated) return;
         Vec3d playerPos = MC.player.getPos();
+
+        OverlayRenderer.startBatch();
 
         for (int x = -20; x <= 20; x++) {
             for (int y = -10; y <= 3; y++) {
@@ -41,10 +43,12 @@ public class LightOverlay {
                         Color color = Color.RED;
                         int blockLightLevel = MC.world.getLightLevel(LightType.BLOCK, blockPos.up());
                         if (blockLightLevel >= config.lightOverlayThreshold) color = Color.GREEN;
-                        OverlayRenderer.draw(context, Vec3d.of(blockPos), color.getRed(), color.getGreen(), color.getBlue(), 0.01F);
+                        OverlayRenderer.addBlock(context, Vec3d.of(blockPos), color.getRed(), color.getGreen(), color.getBlue(), 0.01F);
                     }
                 }
             }
         }
+
+        OverlayRenderer.endBatch();
     }
 }
