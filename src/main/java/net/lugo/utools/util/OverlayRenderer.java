@@ -4,6 +4,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.textures.GpuTexture;
+import com.mojang.blaze3d.textures.GpuTextureView;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.UTools;
 import net.minecraft.client.MinecraftClient;
@@ -42,13 +43,13 @@ public class OverlayRenderer {
     private static VertexConsumer vertexConsumer;
     private static boolean batchStarted = false;
 
-    public static void startBatch() {
+    public static void startBatch() {/*
         if (batchStarted) return;
 
         vertexConsumer = vcp.getBuffer(LIGHT_OVERLAY_RENDERLAYER);
         RenderSystem.setShaderTexture(0, shaderTexture);
         batchStarted = true;
-    }
+    */}
 
     public static void addBlock(WorldRenderContext context, Vec3d pos, int r, int g, int b, float offsetY) {
         if (!batchStarted) return;

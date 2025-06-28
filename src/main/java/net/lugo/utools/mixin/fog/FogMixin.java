@@ -3,10 +3,10 @@ package net.lugo.utools.mixin.fog;
 import net.lugo.utools.UTools;
 import net.lugo.utools.config.ModConfig;
 import net.minecraft.block.enums.CameraSubmersionType;
-import net.minecraft.client.render.BackgroundRenderer;
 import net.minecraft.client.render.Camera;
-import net.minecraft.client.render.Fog;
-import net.minecraft.client.render.FogShape;
+import net.minecraft.client.render.RenderTickCounter;
+import net.minecraft.client.render.fog.FogRenderer;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
@@ -17,13 +17,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(BackgroundRenderer.class)
+@Mixin(FogRenderer.class)
 public class FogMixin {
+    /*
     @Unique
     private static final ModConfig CONFIG = UTools.getConfig();
 
-    @Inject(method = "applyFog", at = @At("RETURN"), cancellable = true)
-    private static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, Vector4f color, float viewDistance, boolean thickenFog, float tickDelta, CallbackInfoReturnable<Fog> cir) {
+    @Inject(
+        method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/render/fog/FogModifier;shouldApply(Lnet/minecraft/block/enums/CameraSubmersionType;Lnet/minecraft/entity/Entity;)Z",
+            shift = At.Shift.BEFORE)
+    )
+    private void applyFog(Camera camera, int viewDistance, boolean thick, RenderTickCounter tickCounter, float skyDarkness, ClientWorld world, CallbackInfoReturnable<Vector4f> cir) {
         CameraSubmersionType cameraSubmersionType = camera.getSubmersionType();
         Entity entity = camera.getFocusedEntity();
         if(!(entity instanceof LivingEntity player)) return;
@@ -33,7 +40,7 @@ public class FogMixin {
         boolean blindness = player.hasStatusEffect(StatusEffects.BLINDNESS);
         boolean darkness = player.hasStatusEffect(StatusEffects.DARKNESS);
         boolean water = cameraSubmersionType == CameraSubmersionType.WATER;
-        boolean sky = fogType == BackgroundRenderer.FogType.FOG_SKY;
+        boolean sky = false; //fogType == FogRenderer.FogType.WORLD;
         boolean terrain = !(lava || powderSnow || blindness || darkness || water || sky);
 
         boolean disableCurrentFog =
@@ -47,7 +54,8 @@ public class FogMixin {
                 || (terrain && !CONFIG.terrainFog);
 
         if (disableCurrentFog) {
-            cir.setReturnValue(new Fog(-8F, 1000000F, FogShape.CYLINDER, 1, 1, 1,1));
+            cir.cancel();
         }
     }
+     */
 }
