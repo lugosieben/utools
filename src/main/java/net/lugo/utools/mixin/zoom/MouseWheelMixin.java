@@ -19,8 +19,8 @@ public class MouseWheelMixin {
             double sensitivity = MinecraftClient.getInstance().options.getMouseWheelSensitivity().getValue();
             double scrollY = (isDiscreteScroll ? Math.signum(vertical) : vertical) * sensitivity;
 
-            if (scrollY < 0) Zoom.increment();
-            if (scrollY > 0) Zoom.decrement();
+            if (scrollY < 0) Zoom.decrement();
+            if (scrollY > 0) Zoom.increment();
         }
     }
 }
