@@ -3,7 +3,6 @@ package net.lugo.utools.util;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.textures.GpuTexture;
 import com.mojang.blaze3d.textures.GpuTextureView;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.UTools;
@@ -37,19 +36,19 @@ public class OverlayRenderer {
             .build(false)
     );
 
-    private static final GpuTexture shaderTexture = MinecraftClient.getInstance().getTextureManager().getTexture(Identifier.of(UTools.MOD_ID, "textures/cross.png")).getGlTexture();
+    private static final GpuTextureView shaderTexture = MinecraftClient.getInstance().getTextureManager().getTexture(Identifier.of(UTools.MOD_ID, "textures/cross.png")).getGlTextureView();
     private static final VertexConsumerProvider.Immediate vcp = VertexConsumerProvider.immediate(new BufferAllocator(8192));
     private static final MatrixStack matrixStack = new MatrixStack();
     private static VertexConsumer vertexConsumer;
     private static boolean batchStarted = false;
 
-    public static void startBatch() {/*
+    public static void startBatch() {
         if (batchStarted) return;
 
         vertexConsumer = vcp.getBuffer(LIGHT_OVERLAY_RENDERLAYER);
         RenderSystem.setShaderTexture(0, shaderTexture);
         batchStarted = true;
-    */}
+    }
 
     public static void addBlock(WorldRenderContext context, Vec3d pos, int r, int g, int b, float offsetY) {
         if (!batchStarted) return;
