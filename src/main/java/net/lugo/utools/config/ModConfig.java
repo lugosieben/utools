@@ -89,7 +89,7 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("Fog")
     public boolean waterFog = true;
     @ConfigEntry.Category("Fog")
-    public boolean skyFog = true;
+    public boolean renderDistanceFog = true;
 
     @ConfigEntry.Category("GuiInfo")
     public boolean timeDisplay = false;

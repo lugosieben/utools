@@ -1,61 +1,74 @@
 package net.lugo.utools.mixin.fog;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.lugo.utools.UTools;
 import net.lugo.utools.config.ModConfig;
-import net.minecraft.block.enums.CameraSubmersionType;
-import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.RenderTickCounter;
+import net.minecraft.client.render.fog.FogData;
+import net.minecraft.client.render.fog.FogModifier;
 import net.minecraft.client.render.fog.FogRenderer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffects;
-import org.joml.Vector4f;
+import net.minecraft.util.math.BlockPos;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
+
+import java.util.List;
 
 @Mixin(FogRenderer.class)
 public class FogMixin {
-    /*
+    @Shadow
+    @Final
+    private static List<FogModifier> FOG_MODIFIERS;
     @Unique
     private static final ModConfig CONFIG = UTools.getConfig();
 
-    @Inject(
-        method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/client/render/fog/FogModifier;shouldApply(Lnet/minecraft/block/enums/CameraSubmersionType;Lnet/minecraft/entity/Entity;)Z",
-            shift = At.Shift.BEFORE)
-    )
-    private void applyFog(Camera camera, int viewDistance, boolean thick, RenderTickCounter tickCounter, float skyDarkness, ClientWorld world, CallbackInfoReturnable<Vector4f> cir) {
-        CameraSubmersionType cameraSubmersionType = camera.getSubmersionType();
-        Entity entity = camera.getFocusedEntity();
-        if(!(entity instanceof LivingEntity player)) return;
+    @WrapOperation(
+            method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/render/fog/FogModifier;applyStartEndModifier(Lnet/minecraft/client/render/fog/FogData;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/client/world/ClientWorld;FLnet/minecraft/client/render/RenderTickCounter;)V"))
+    private void applyFog(FogModifier fogModifier, FogData fogData, Entity entity, BlockPos blockPos, ClientWorld clientWorld, float v, RenderTickCounter renderTickCounter, Operation<Void> original) {
 
-        boolean lava = cameraSubmersionType == CameraSubmersionType.LAVA;
-        boolean powderSnow = cameraSubmersionType == CameraSubmersionType.POWDER_SNOW;
-        boolean blindness = player.hasStatusEffect(StatusEffects.BLINDNESS);
-        boolean darkness = player.hasStatusEffect(StatusEffects.DARKNESS);
-        boolean water = cameraSubmersionType == CameraSubmersionType.WATER;
-        boolean sky = false; //fogType == FogRenderer.FogType.WORLD;
-        boolean terrain = !(lava || powderSnow || blindness || darkness || water || sky);
+        v /= 2;
+        boolean lava = fogModifier.equals(FOG_MODIFIERS.getFirst());
+        boolean powderSnow = fogModifier.equals(FOG_MODIFIERS.get(1));
+        boolean blindness = fogModifier.equals(FOG_MODIFIERS.get(2));
+        boolean darkness = fogModifier.equals(FOG_MODIFIERS.get(3));
+        boolean water = fogModifier.equals(FOG_MODIFIERS.get(4));
+        boolean terrain = fogModifier.equals(FOG_MODIFIERS.get(5));
 
         boolean disableCurrentFog =
-                (CONFIG.turnOffAllFogs)
+                   CONFIG.turnOffAllFogs
                 || (lava && !CONFIG.lavaFog)
                 || (powderSnow && !CONFIG.powderSnowFog)
                 || (blindness && !CONFIG.blindnessFog)
                 || (darkness && !CONFIG.darknessFog)
                 || (water && !CONFIG.waterFog)
-                || (sky && !CONFIG.skyFog)
                 || (terrain && !CONFIG.terrainFog);
 
         if (disableCurrentFog) {
-            cir.cancel();
+            fogData.environmentalStart = Float.MAX_VALUE;
+            fogData.environmentalEnd = Float.MAX_VALUE;
+            fogData.skyEnd = Float.MAX_VALUE;
+            fogData.cloudEnd = Float.MAX_VALUE;
+        } else {
+            original.call(fogModifier, fogData, entity, blockPos, clientWorld, v, renderTickCounter);
         }
     }
-     */
+
+    @ModifyConstant(method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;", constant = @Constant(intValue = 16))
+    private int applyFog(int value) {
+        if (!CONFIG.renderDistanceFog) {
+            value *= 2;
+        }
+
+        return value;
+    }
 }
