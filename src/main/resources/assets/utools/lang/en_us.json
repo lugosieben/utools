@@ -68,7 +68,7 @@
   "text.autoconfig.utools.option.blindnessFog": "Blindness Fog",
   "text.autoconfig.utools.option.darknessFog": "Darkness Fog",
   "text.autoconfig.utools.option.waterFog": "Water Fog",
-  "text.autoconfig.utools.option.skyFog": "Sky Fog",
+  "text.autoconfig.utools.option.renderDistanceFog": "Render Distance Fog",
 
   "key.utools.autoAttackToggle": "Toggle AutoAttack",
   "text.utools.message.autoAttackToggle.on": "AutoAttack §2on",

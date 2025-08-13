@@ -3,7 +3,7 @@ package net.lugo.utools.util;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.textures.GpuTexture;
+import com.mojang.blaze3d.textures.GpuTextureView;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.UTools;
 import net.minecraft.client.MinecraftClient;
@@ -36,7 +36,7 @@ public class OverlayRenderer {
             .build(false)
     );
 
-    private static final GpuTexture shaderTexture = MinecraftClient.getInstance().getTextureManager().getTexture(Identifier.of(UTools.MOD_ID, "textures/cross.png")).getGlTexture();
+    private static final GpuTextureView shaderTexture = MinecraftClient.getInstance().getTextureManager().getTexture(Identifier.of(UTools.MOD_ID, "textures/cross.png")).getGlTextureView();
     private static final VertexConsumerProvider.Immediate vcp = VertexConsumerProvider.immediate(new BufferAllocator(8192));
     private static final MatrixStack matrixStack = new MatrixStack();
     private static VertexConsumer vertexConsumer;
