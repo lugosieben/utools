@@ -17,7 +17,7 @@ public class ZoomMixin {
         if (UTools.getConfig().turnOffZoom) return;
         float fov = callbackInfo.getReturnValue();
         float effectiveZoomMultiplier = Zoom.goal;
-        Easing easing = Zoom.lastGoal >= Zoom.goal ? UTools.getConfig().zoomOutEasing : UTools.getConfig().zoomInEasing;
+        Easing easing = Zoom.lastGoal >= Zoom.goal ? UTools.getConfig().getZoomOutEasing() : UTools.getConfig().getZoomInEasing();
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
             Zoom.t += (tickDelta * 50) / 1000;
