@@ -44,12 +44,6 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("Zoom")
     @ConfigEntry.Gui.Tooltip(count = 2)
     public boolean turnOffZoom = false;
-    public Easing getZoomInEasing() {
-        return zoomDuration == 0 ? Easing.INSTANT : zoomInEasing;
-    }
-    public Easing getZoomOutEasing() {
-        return zoomDuration == 0 ? Easing.INSTANT : zoomOutEasing;
-    }
 
     @ConfigEntry.Category("ClientTimeWeather")
     public boolean clientWeatherClear = false;
