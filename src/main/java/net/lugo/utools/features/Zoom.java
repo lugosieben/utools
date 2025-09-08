@@ -1,7 +1,9 @@
 package net.lugo.utools.features;
 
 import net.lugo.utools.UTools;
+import net.lugo.utools.util.Easing;
 import net.minecraft.client.MinecraftClient;
+import org.spongepowered.asm.mixin.Unique;
 
 public class Zoom {
     private static final float MIN_ZOOM = 1f;
@@ -39,5 +41,13 @@ public class Zoom {
     }
     public static void decrement () {
         increment(-UTools.getConfig().scrollIncrement);
+    }
+
+    public static Easing getZoomInEasing() {
+        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomInEasing;
+    }
+
+    public static Easing getZoomOutEasing() {
+        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomOutEasing;
     }
 }

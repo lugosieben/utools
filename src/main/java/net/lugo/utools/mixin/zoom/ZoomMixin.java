@@ -6,7 +6,6 @@ import net.lugo.utools.util.Easing;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -18,7 +17,7 @@ public class ZoomMixin {
         if (UTools.getConfig().turnOffZoom) return;
         float fov = callbackInfo.getReturnValue();
         float effectiveZoomMultiplier = Zoom.goal;
-        Easing easing = Zoom.lastGoal >= Zoom.goal ? getZoomOutEasing() : getZoomInEasing();
+        Easing easing = Zoom.lastGoal >= Zoom.goal ? Zoom.getZoomOutEasing() : Zoom.getZoomInEasing();
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
             Zoom.t += (tickDelta * 50) / 1000;
@@ -33,15 +32,5 @@ public class ZoomMixin {
         
         Zoom.latestEffectiveZoom = effectiveZoomMultiplier;
         callbackInfo.setReturnValue(fov / effectiveZoomMultiplier);
-    }
-
-    @Unique
-    private Easing getZoomInEasing() {
-        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomInEasing;
-    }
-
-    @Unique
-    private Easing getZoomOutEasing() {
-        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomOutEasing;
     }
 }
