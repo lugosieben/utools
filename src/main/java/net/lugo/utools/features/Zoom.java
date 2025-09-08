@@ -3,7 +3,6 @@ package net.lugo.utools.features;
 import net.lugo.utools.UTools;
 import net.lugo.utools.util.Easing;
 import net.minecraft.client.MinecraftClient;
-import org.spongepowered.asm.mixin.Unique;
 
 public class Zoom {
     private static final float MIN_ZOOM = 1f;
