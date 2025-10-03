@@ -1,7 +1,6 @@
 package net.lugo.utools.features;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.OverlayRenderer;
@@ -27,9 +26,9 @@ public class LightOverlay {
         HudMessage.show(message, Formatting.DARK_AQUA);
     }
 
-    public static void renderEnd(WorldRenderContext context) {
+    public static void renderEnd() {
         if (MC.player == null || MC.world == null || MC.isPaused() || !activated) return;
-        Vec3d playerPos = MC.player.getPos();
+        Vec3d playerPos = new Vec3d(MC.player.getX(), MC.player.getY(), MC.player.getZ());
 
         OverlayRenderer.startBatch();
 
@@ -43,7 +42,7 @@ public class LightOverlay {
                         Color color = Color.RED;
                         int blockLightLevel = MC.world.getLightLevel(LightType.BLOCK, blockPos.up());
                         if (blockLightLevel >= config.lightOverlayThreshold) color = Color.GREEN;
-                        OverlayRenderer.addBlock(context, Vec3d.of(blockPos), color.getRed(), color.getGreen(), color.getBlue(), 0.01F);
+                        OverlayRenderer.addBlock(MC.gameRenderer.getCamera(), Vec3d.of(blockPos), color.getRed(), color.getGreen(), color.getBlue(), 0.01F);
                     }
                 }
             }

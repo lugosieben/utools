@@ -6,11 +6,12 @@ import net.lugo.utools.UTools;
 import net.lugo.utools.features.*;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBindings {
 
-    private static final String CATEGORY = "key.categories." + UTools.MOD_ID;
+    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of(UTools.MOD_ID));
     private static final String BASE_KEY = "key." + UTools.MOD_ID;
 
     public static void registerKeybinds() {
