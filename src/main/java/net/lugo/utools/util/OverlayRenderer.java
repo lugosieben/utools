@@ -4,7 +4,6 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.textures.GpuTextureView;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.lugo.utools.UTools;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.RenderPipelines;
@@ -50,10 +49,9 @@ public class OverlayRenderer {
         batchStarted = true;
     }
 
-    public static void addBlock(WorldRenderContext context, Vec3d pos, int r, int g, int b, float offsetY) {
+    public static void addBlock(Camera camera, Vec3d pos, int r, int g, int b, float offsetY) {
         if (!batchStarted) return;
 
-        Camera camera = context.camera();
         Vec3d transformedPos = pos.subtract(camera.getPos());
 
         matrixStack.push();

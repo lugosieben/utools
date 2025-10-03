@@ -91,17 +91,6 @@ public class ModConfig  implements ConfigData {
     @ConfigEntry.Category("Fog")
     public boolean renderDistanceFog = true;
 
-    @ConfigEntry.Category("GuiInfo")
-    public boolean timeDisplay = false;
-    @ConfigEntry.Category("GuiInfo")
-    public boolean fpsDisplay = false;
-    @ConfigEntry.Category("GuiInfo")
-    public boolean pingDisplay = false;
-    @ConfigEntry.Category("GuiInfo")
-    public boolean posDisplay = false;
-    @ConfigEntry.Category("GuiInfo")
-    public boolean compassDisplay = false;
-
     @ConfigEntry.Category("Gameplay")
     public boolean keepMining = false;
 
