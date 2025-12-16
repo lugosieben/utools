@@ -2,13 +2,13 @@ package net.lugo.utools.features;
 
 import net.lugo.utools.UTools;
 import net.lugo.utools.util.Easing;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 public class Zoom {
     private static final float MIN_ZOOM = 1f;
     private static final float MAX_ZOOM = 100f;
     
-    private static final MinecraftClient MC = MinecraftClient.getInstance();
+    private static final Minecraft MC = Minecraft.getInstance();
     
     public static boolean isZooming = false;
     public static float goal = 1f;
@@ -21,14 +21,14 @@ public class Zoom {
         lastGoal = latestEffectiveZoom;
         t = 0f;
         goal = Math.clamp(UTools.getConfig().zoomMultiplier, MIN_ZOOM, MAX_ZOOM);
-        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCameraEnabled = true;
+        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCamera = true;
     }
     public static void off () {
         isZooming = false;
         lastGoal = latestEffectiveZoom;
         t = 0f;
         goal = 1f;
-        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCameraEnabled = false;
+        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCamera = false;
     }
     public static void increment (float amount) {
         lastGoal = latestEffectiveZoom;

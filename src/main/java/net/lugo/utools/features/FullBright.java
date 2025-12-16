@@ -3,19 +3,20 @@ package net.lugo.utools.features;
 import net.lugo.utools.UTools;
 import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.PlayerEffects;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.option.SimpleOption;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.OptionInstance;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.effect.MobEffects;
+import org.jetbrains.annotations.NotNull;
 
 public class FullBright {
-    private static final SimpleOption<Double>  gamma = MinecraftClient.getInstance().options.getGamma();
+    private static final OptionInstance<@NotNull Double>  gamma = Minecraft.getInstance().options.gamma();
 
     public static int setValue(double value) {
-        gamma.setValue(value);
+        gamma.set(value);
         return 1;
     }
 
@@ -23,36 +24,36 @@ public class FullBright {
         double normalGamma = (double) UTools.getConfig().normalGammaPercentage / 100;
         double fullGamma = (double) UTools.getConfig().fullGammaPercentage / 100;
 
-        double toPut = gamma.getValue() == fullGamma ? normalGamma : fullGamma;
+        double toPut = gamma.get() == fullGamma ? normalGamma : fullGamma;
         int percentage = (int)toPut * 100;
-        MutableText message = Text.translatable("text.utools.message.gammaPercentage", String.valueOf(percentage));
-        gamma.setValue(toPut);
-        HudMessage.show(message, Formatting.DARK_AQUA);
+        MutableComponent message = Component.translatable("text.utools.message.gammaPercentage", String.valueOf(percentage));
+        gamma.set(toPut);
+        HudMessage.show(message, ChatFormatting.DARK_AQUA);
         return 1;
     }
 
     public static void toggleNightVision() {
-        MinecraftClient MC = MinecraftClient.getInstance();
+        Minecraft MC = Minecraft.getInstance();
         if (MC.player == null) return;
-        boolean hasStatusEffect = MC.player.hasStatusEffect(StatusEffects.NIGHT_VISION);
+        boolean hasStatusEffect = MC.player.hasEffect(MobEffects.NIGHT_VISION);
         if (!hasStatusEffect) {
-            PlayerEffects.addPermanentEffect(MC.player, StatusEffects.NIGHT_VISION);
-            MutableText message = Text.translatable("text.utools.message.nightVision", "on");
-            HudMessage.show(message, Formatting.GREEN);
+            PlayerEffects.addPermanentEffect(MC.player, MobEffects.NIGHT_VISION);
+            MutableComponent message = Component.translatable("text.utools.message.nightVision", "on");
+            HudMessage.show(message, ChatFormatting.GREEN);
         } else {
-            MC.player.removeStatusEffect(StatusEffects.NIGHT_VISION);
-            MutableText message = Text.translatable("text.utools.message.nightVision", "off");
-            HudMessage.show(message, Formatting.RED);
+            MC.player.removeEffect(MobEffects.NIGHT_VISION);
+            MutableComponent message = Component.translatable("text.utools.message.nightVision", "off");
+            HudMessage.show(message, ChatFormatting.RED);
         }
     }
 
     public static void resetGamma() {
-        if (gamma.getValue() > 1) gamma.setValue((double) UTools.getConfig().normalGammaPercentage / 100);
+        if (gamma.get() > 1) gamma.set((double) UTools.getConfig().normalGammaPercentage / 100);
     }
 
     public static void resetNV() {
-        ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        if (player == null || !player.hasStatusEffect(StatusEffects.NIGHT_VISION)) return;
-        player.removeStatusEffect(StatusEffects.NIGHT_VISION);
+        LocalPlayer player = Minecraft.getInstance().player;
+        if (player == null || !player.hasEffect(MobEffects.NIGHT_VISION)) return;
+        player.removeEffect(MobEffects.NIGHT_VISION);
     }
 }

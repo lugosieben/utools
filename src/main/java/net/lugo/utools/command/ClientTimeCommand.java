@@ -5,10 +5,10 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.lugo.utools.features.ClientTime;
 import net.lugo.utools.features.ClientTime.ClientTimeType;
-import net.minecraft.command.CommandRegistryAccess;
+import net.minecraft.commands.CommandBuildContext;
 
 public class ClientTimeCommand {
-    public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess ignoredCommandRegistryAccess) {
+    public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandBuildContext ignoredCommandRegistryAccess) {
         dispatcher.register(ClientCommandManager.literal("clienttime")
                 .then(ClientCommandManager.literal("reset")
                         .executes((ctx) -> { ClientTime.set(ClientTimeType.DISABLED); return 1; }))

@@ -1,15 +1,15 @@
 package net.lugo.utools.mixin.mixinevents;
 
 import net.lugo.utools.features.LightOverlay;
-import net.minecraft.client.render.WorldRenderer;
+import net.minecraft.client.renderer.LevelRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(WorldRenderer.class)
+@Mixin(LevelRenderer.class)
 public class WorldRendererMixin {
-    @Inject(method = "render", at = @At("RETURN"))
+    @Inject(method = "renderLevel", at = @At("RETURN"))
     private void afterRender(CallbackInfo ci) {
         LightOverlay.renderEnd();
     }

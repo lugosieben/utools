@@ -1,17 +1,17 @@
 package net.lugo.utools.registration;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.lugo.utools.UTools;
 import net.lugo.utools.features.*;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBindings {
 
-    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of(UTools.MOD_ID));
+    private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(Identifier.parse(UTools.MOD_ID));
     private static final String BASE_KEY = "key." + UTools.MOD_ID;
 
     public static void registerKeybinds() {
@@ -24,11 +24,11 @@ public class KeyBindings {
     }
 
     private static void registerFullbrightGammaKey() {
-        KeyBinding fullbrightKey = new KeyBinding(BASE_KEY + ".fullbrightGammaToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_G, CATEGORY);
+        KeyMapping fullbrightKey = new KeyMapping(BASE_KEY + ".fullbrightGammaToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, CATEGORY);
         KeyBindingHelper.registerKeyBinding(fullbrightKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (fullbrightKey.wasPressed()) {
+            while (fullbrightKey.consumeClick()) {
                 if (UTools.getConfig().useNightVisionInstead) {
                     FullBright.toggleNightVision();
                     FullBright.resetGamma();
@@ -42,14 +42,14 @@ public class KeyBindings {
 
     private static boolean lastZoomKeyPressedState = false;
     private static void registerZoomKey() {
-        KeyBinding zoomKey = new KeyBinding(BASE_KEY + ".zoom", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, CATEGORY);
+        KeyMapping zoomKey = new KeyMapping(BASE_KEY + ".zoom", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_C, CATEGORY);
         KeyBindingHelper.registerKeyBinding(zoomKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (zoomKey.isPressed() && !lastZoomKeyPressedState) {
+            if (zoomKey.isDown() && !lastZoomKeyPressedState) {
                 lastZoomKeyPressedState = true;
                 Zoom.on();
-            } else if (!zoomKey.isPressed() && lastZoomKeyPressedState) {
+            } else if (!zoomKey.isDown() && lastZoomKeyPressedState) {
                 lastZoomKeyPressedState = false;
                 Zoom.off();
             }
@@ -57,11 +57,11 @@ public class KeyBindings {
     }
 
     private static void registerZoomToggleKey() {
-        KeyBinding zoomToggleKey = new KeyBinding(BASE_KEY + ".zoomToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
+        KeyMapping zoomToggleKey = new KeyMapping(BASE_KEY + ".zoomToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
         KeyBindingHelper.registerKeyBinding(zoomToggleKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (zoomToggleKey.wasPressed()) {
+            if (zoomToggleKey.consumeClick()) {
                 if (Zoom.isZooming) {
                     Zoom.off();
                 } else {
@@ -72,33 +72,33 @@ public class KeyBindings {
     }
 
     private static void registerLightOverlayKey() {
-        KeyBinding lightOverlayKey = new KeyBinding(BASE_KEY + ".lightOverlayToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_F9, CATEGORY);
+        KeyMapping lightOverlayKey = new KeyMapping(BASE_KEY + ".lightOverlayToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F9, CATEGORY);
         KeyBindingHelper.registerKeyBinding(lightOverlayKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (lightOverlayKey.wasPressed()) {
+            if (lightOverlayKey.consumeClick()) {
                 LightOverlay.toggle();
             }
         });
     }
 
     private static void registerAutoAttackKey() {
-        KeyBinding autoAttackKey = new KeyBinding(BASE_KEY + ".autoAttackToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_F10, CATEGORY);
+        KeyMapping autoAttackKey = new KeyMapping(BASE_KEY + ".autoAttackToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F10, CATEGORY);
         KeyBindingHelper.registerKeyBinding(autoAttackKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (autoAttackKey.wasPressed()) {
+            if (autoAttackKey.consumeClick()) {
                 AutoAttack.toggle();
             }
         });
     }
 
     private static void registerHidePlayersKey() {
-        KeyBinding hidePlayersKey = new KeyBinding(BASE_KEY + ".hidePlayersToggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
+        KeyMapping hidePlayersKey = new KeyMapping(BASE_KEY + ".hidePlayersToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
         KeyBindingHelper.registerKeyBinding(hidePlayersKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (hidePlayersKey.wasPressed()) {
+            if (hidePlayersKey.consumeClick()) {
                 HidePlayers.toggle();
             }
         });

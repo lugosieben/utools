@@ -1,16 +1,16 @@
 package net.lugo.utools.mixin.clienttimeweather;
 
 import net.lugo.utools.UTools;
-import net.minecraft.client.world.ClientWorld;
+import net.minecraft.client.multiplayer.ClientLevel;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(ClientWorld.Properties.class)
+@Mixin(ClientLevel.ClientLevelData.class)
 
 public abstract class ClientTimeMixin {
-    @Inject(at = @At("RETURN"), method = "getTimeOfDay", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "getDayTime", cancellable = true)
     public void getTimeOfDay(CallbackInfoReturnable<Long> cir) {
         switch (UTools.getConfig().clientTimeType) {
             case DISABLED -> cir.cancel();

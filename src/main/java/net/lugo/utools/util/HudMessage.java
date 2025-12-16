@@ -1,14 +1,14 @@
 package net.lugo.utools.util;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.MutableText;
-import net.minecraft.util.Formatting;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.MutableComponent;
 
 public class HudMessage {
-    private static final MinecraftClient client = MinecraftClient.getInstance();
+    private static final Minecraft client = Minecraft.getInstance();
 
-    public static void show(MutableText string, Formatting format) {
-        MutableText message = string.formatted(format);
-        client.inGameHud.setOverlayMessage(message, false);
+    public static void show(MutableComponent string, ChatFormatting format) {
+        MutableComponent message = string.withStyle(format);
+        client.gui.setOverlayMessage(message, false);
     }
 }
