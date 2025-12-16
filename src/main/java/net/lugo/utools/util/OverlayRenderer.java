@@ -2,10 +2,7 @@ package net.lugo.utools.util;
 
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.DepthTestFunction;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.textures.GpuTextureView;
 import net.lugo.utools.UTools;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.BufferAllocator;
@@ -16,43 +13,40 @@ import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
 
 public class OverlayRenderer {
-    private static final RenderPipeline LIGHT_OVERLAY_PIPELINE = RenderPipelines.register(
-        RenderPipeline.builder(RenderPipelines.POSITION_TEX_COLOR_SNIPPET)
-            .withLocation(Identifier.of(UTools.MOD_ID, "pipeline/light_overlay"))
-            .withCull(true)
-            .withDepthTestFunction(DepthTestFunction.LEQUAL_DEPTH_TEST)
-            .withDepthWrite(true)
-            .build()
-    );
-
-    private static final RenderLayer LIGHT_OVERLAY_RENDERLAYER = RenderLayer.of(
-        "utools/light_overlay",
-        1024,
-        false,
-        true,
-        LIGHT_OVERLAY_PIPELINE,
-        RenderLayer.MultiPhaseParameters.builder()
-            .build(false)
-    );
-
-    private static final GpuTextureView shaderTexture = MinecraftClient.getInstance().getTextureManager().getTexture(Identifier.of(UTools.MOD_ID, "textures/cross.png")).getGlTextureView();
+    private static final Identifier shaderTexture = Identifier.of(UTools.MOD_ID, "textures/cross.png");
     private static final VertexConsumerProvider.Immediate vcp = VertexConsumerProvider.immediate(new BufferAllocator(8192));
     private static final MatrixStack matrixStack = new MatrixStack();
     private static VertexConsumer vertexConsumer;
     private static boolean batchStarted = false;
 
+    private static final RenderPipeline LIGHT_OVERLAY_PIPELINE = RenderPipelines.register(
+            RenderPipeline.builder(RenderPipelines.POSITION_TEX_COLOR_SNIPPET)
+                    .withLocation(Identifier.of(UTools.MOD_ID, "pipeline/light_overlay"))
+                    .withCull(true)
+                    .withDepthTestFunction(DepthTestFunction.LEQUAL_DEPTH_TEST)
+                    .withDepthWrite(true)
+                    .build()
+    );
+
+    private static final RenderLayer LIGHT_OVERLAY_RENDERLAYER = RenderLayer.of(
+            "utools/light_overlay",
+            RenderSetup.builder(LIGHT_OVERLAY_PIPELINE)
+                    .texture("Sampler0", shaderTexture)
+                    .crumbling().outlineMode(RenderSetup.OutlineMode.AFFECTS_OUTLINE)
+                    .build()
+    );
+
     public static void startBatch() {
         if (batchStarted) return;
 
         vertexConsumer = vcp.getBuffer(LIGHT_OVERLAY_RENDERLAYER);
-        RenderSystem.setShaderTexture(0, shaderTexture);
         batchStarted = true;
     }
 
     public static void addBlock(Camera camera, Vec3d pos, int r, int g, int b, float offsetY) {
         if (!batchStarted) return;
 
-        Vec3d transformedPos = pos.subtract(camera.getPos());
+        Vec3d transformedPos = pos.subtract(camera.getCameraPos());
 
         matrixStack.push();
         matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(camera.getPitch()));

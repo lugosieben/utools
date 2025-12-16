@@ -4,13 +4,12 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.lugo.utools.UTools;
 import net.lugo.utools.config.ModConfig;
+import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.client.render.fog.FogData;
 import net.minecraft.client.render.fog.FogModifier;
 import net.minecraft.client.render.fog.FogRenderer;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,11 +29,11 @@ public class FogMixin {
     private static final ModConfig CONFIG = UTools.getConfig();
 
     @WrapOperation(
-            method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
+            method = "applyFog(Lnet/minecraft/client/render/Camera;ILnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/render/fog/FogModifier;applyStartEndModifier(Lnet/minecraft/client/render/fog/FogData;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/client/world/ClientWorld;FLnet/minecraft/client/render/RenderTickCounter;)V"))
-    private void applyFog(FogModifier fogModifier, FogData fogData, Entity entity, BlockPos blockPos, ClientWorld clientWorld, float v, RenderTickCounter renderTickCounter, Operation<Void> original) {
+                    target = "Lnet/minecraft/client/render/fog/FogModifier;applyStartEndModifier(Lnet/minecraft/client/render/fog/FogData;Lnet/minecraft/client/render/Camera;Lnet/minecraft/client/world/ClientWorld;FLnet/minecraft/client/render/RenderTickCounter;)V"))
+    private void applyFog(FogModifier fogModifier, FogData fogData, Camera camera, ClientWorld clientWorld, float v, RenderTickCounter renderTickCounter, Operation<Void> original) {
 
         v /= 2;
         boolean lava = fogModifier.equals(FOG_MODIFIERS.getFirst());
@@ -59,11 +58,11 @@ public class FogMixin {
             fogData.skyEnd = Float.MAX_VALUE;
             fogData.cloudEnd = Float.MAX_VALUE;
         } else {
-            original.call(fogModifier, fogData, entity, blockPos, clientWorld, v, renderTickCounter);
+            original.call(fogModifier, fogData, camera, clientWorld, v, renderTickCounter);
         }
     }
 
-    @ModifyConstant(method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;", constant = @Constant(intValue = 16))
+    @ModifyConstant(method = "applyFog(Lnet/minecraft/client/render/Camera;ILnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;", constant = @Constant(intValue = 16))
     private int applyFog(int value) {
         if (!CONFIG.renderDistanceFog) {
             value *= 2;
