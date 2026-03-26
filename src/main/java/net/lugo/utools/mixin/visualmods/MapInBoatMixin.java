@@ -1,6 +1,6 @@
 package net.lugo.utools.mixin.visualmods;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.player.LocalPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,6 +14,6 @@ public class MapInBoatMixin {
             shift = At.Shift.AFTER),
             cancellable = true)
     private void afterBoatMovement(CallbackInfo ci) {
-        if (UTools.getConfig().mapInBoat) ci.cancel();
+        if (ModConfig.mapInBoat) ci.cancel();
     }
 }

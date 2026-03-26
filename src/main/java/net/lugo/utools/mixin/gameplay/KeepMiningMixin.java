@@ -1,6 +1,6 @@
 package net.lugo.utools.mixin.gameplay;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +15,6 @@ public class KeepMiningMixin {
 
     @Inject(method = "sameDestroyTarget", at = @At("HEAD"), cancellable = true)
     private void isCurrentlyBreaking(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (UTools.getConfig().keepMining) cir.setReturnValue(pos.equals(this.destroyBlockPos));
+        if (ModConfig.keepMining) cir.setReturnValue(pos.equals(this.destroyBlockPos));
     }
 }

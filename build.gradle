@@ -15,8 +15,9 @@ repositories {
 	mavenCentral()
 	maven { url "https://maven.fabricmc.net/" }
 	maven { url "https://repo.spongepowered.org/repository/maven-public/" }
-	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.terraformersmc.com/releases/" }
+	maven { url "https://maven.isxander.dev/releases" }
+	maven { url "https://api.modrinth.com/maven" }
 }
 
 fabricApi {
@@ -30,12 +31,9 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-
-	modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"
-	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
+	modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modApi "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+	modApi "maven.modrinth:modmenu:${project.modmenu_version}"
 }
 
 def replaceProperties = [
@@ -45,7 +43,7 @@ def replaceProperties = [
 		minecraft_version: minecraft_version,
 		minecraft_version_compatible: minecraft_version_compatible,
 		fabric_version: fabric_version,
-		cloth_version: cloth_version,
+		yacl_version: yacl_version,
 		modmenu_version: modmenu_version,
 ]
 

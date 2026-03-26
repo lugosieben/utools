@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.*;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
@@ -29,7 +30,7 @@ public class KeyBindings {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (fullbrightKey.consumeClick()) {
-                if (UTools.getConfig().useNightVisionInstead) {
+                if (ModConfig.useNightVisionInstead) {
                     FullBright.toggleNightVision();
                     FullBright.resetGamma();
                 } else {

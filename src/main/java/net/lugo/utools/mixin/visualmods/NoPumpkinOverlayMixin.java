@@ -1,6 +1,6 @@
 package net.lugo.utools.mixin.visualmods;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
@@ -20,6 +20,6 @@ public class NoPumpkinOverlayMixin {
         cancellable = true
     )
     private void renderOverlay (GuiGraphics context, DeltaTracker tickCounter, CallbackInfo ci) {
-        if (UTools.getConfig().hidePumpkinOverlay) ci.cancel();
+        if (ModConfig.hidePumpkinOverlay) ci.cancel();
     }
 }

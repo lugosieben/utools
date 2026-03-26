@@ -1,6 +1,7 @@
 package net.lugo.utools.mixin.copyscreenshot;
 
 import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.CopyScreenshot;
 import net.lugo.utools.util.HudMessage;
 import net.minecraft.ChatFormatting;
@@ -32,7 +33,7 @@ public class CopyScreenshotMixin {
     )
 
     private static void afterScreenshot(NativeImage nativeImage, File file, Consumer<Component> consumer, CallbackInfo ci) {
-        if (!UTools.getConfig().copyScreenshots) return;
+        if (!ModConfig.copyScreenshots) return;
         Minecraft MC = Minecraft.getInstance();
         new Thread(() -> {
             try {

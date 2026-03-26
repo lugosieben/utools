@@ -1,6 +1,6 @@
 package net.lugo.utools.mixin.visualmods;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ShowBarriersMixin {
     @Inject(method = "getMarkerParticleTarget", at = @At("RETURN"), cancellable = true)
     public void getBlockParticle(CallbackInfoReturnable<Block> cir) {
-        if ((UTools.getConfig().showBarriers) && (cir.getReturnValue() == null)) {
+        if ((ModConfig.showBarriers) && (cir.getReturnValue() == null)) {
             cir.setReturnValue(Blocks.BARRIER);
         }
     }

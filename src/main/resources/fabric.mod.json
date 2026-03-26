@@ -31,7 +31,7 @@
 		"minecraft": "${minecraft_version_compatible}",
 		"java": ">=${java_version}",
 		"fabric-api": ">=${fabric_version}",
-		"cloth-config": ">=${cloth_version}"
+		"yet_another_config_lib_v3": ">=${yacl_version}"
 
 	},
 	"suggests": {

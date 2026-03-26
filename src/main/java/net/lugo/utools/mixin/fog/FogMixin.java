@@ -2,7 +2,6 @@ package net.lugo.utools.mixin.fog;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.lugo.utools.UTools;
 import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
@@ -13,7 +12,6 @@ import net.minecraft.client.renderer.fog.environment.FogEnvironment;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -25,8 +23,6 @@ public class FogMixin {
     @Shadow
     @Final
     private static List<FogEnvironment> FOG_ENVIRONMENTS;
-    @Unique
-    private static final ModConfig CONFIG = UTools.getConfig();
 
     @WrapOperation(
             method = "setupFog(Lnet/minecraft/client/Camera;ILnet/minecraft/client/DeltaTracker;FLnet/minecraft/client/multiplayer/ClientLevel;)Lorg/joml/Vector4f;",
@@ -44,13 +40,13 @@ public class FogMixin {
         boolean terrain = fogModifier.equals(FOG_ENVIRONMENTS.get(5));
 
         boolean disableCurrentFog =
-                   CONFIG.turnOffAllFogs
-                || (lava && !CONFIG.lavaFog)
-                || (powderSnow && !CONFIG.powderSnowFog)
-                || (blindness && !CONFIG.blindnessFog)
-                || (darkness && !CONFIG.darknessFog)
-                || (water && !CONFIG.waterFog)
-                || (terrain && !CONFIG.terrainFog);
+                   ModConfig.turnOffAllFogs
+                || (lava && !ModConfig.lavaFog)
+                || (powderSnow && !ModConfig.powderSnowFog)
+                || (blindness && !ModConfig.blindnessFog)
+                || (darkness && !ModConfig.darknessFog)
+                || (water && !ModConfig.waterFog)
+                || (terrain && !ModConfig.terrainFog);
 
         if (disableCurrentFog) {
             fogData.environmentalStart = Float.MAX_VALUE;
@@ -64,7 +60,7 @@ public class FogMixin {
 
     @ModifyConstant(method = "setupFog(Lnet/minecraft/client/Camera;ILnet/minecraft/client/DeltaTracker;FLnet/minecraft/client/multiplayer/ClientLevel;)Lorg/joml/Vector4f;", constant = @Constant(intValue = 16))
     private int applyFog(int value) {
-        if (!CONFIG.renderDistanceFog) {
+        if (!ModConfig.renderDistanceFog) {
             value *= 2;
         }
 

@@ -1,6 +1,6 @@
 package net.lugo.utools.mixin.zoom;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.Zoom;
 import net.minecraft.client.MouseHandler;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public class MouseSensitivityMixin {
     @ModifyVariable(method = "turnPlayer", at = @At("STORE"), ordinal = 3)
     private double updateMouse(double f) {
-        if (UTools.getConfig().zoomRelativeSensitivity) return f / (double) Zoom.latestEffectiveZoom;
+        if (ModConfig.zoomRelativeSensitivity) return f / (double) Zoom.latestEffectiveZoom;
         return f;
     }
 }

@@ -1,6 +1,6 @@
 package net.lugo.utools.features;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.util.Easing;
 import net.minecraft.client.Minecraft;
 
@@ -20,15 +20,15 @@ public class Zoom {
         isZooming = true;
         lastGoal = latestEffectiveZoom;
         t = 0f;
-        goal = Math.clamp(UTools.getConfig().zoomMultiplier, MIN_ZOOM, MAX_ZOOM);
-        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCamera = true;
+        goal = Math.clamp(ModConfig.zoomMultiplier, MIN_ZOOM, MAX_ZOOM);
+        if (ModConfig.zoomSmoothCam) MC.options.smoothCamera = true;
     }
     public static void off () {
         isZooming = false;
         lastGoal = latestEffectiveZoom;
         t = 0f;
         goal = 1f;
-        if (UTools.getConfig().zoomSmoothCam) MC.options.smoothCamera = false;
+        if (ModConfig.zoomSmoothCam) MC.options.smoothCamera = false;
     }
     public static void increment (float amount) {
         lastGoal = latestEffectiveZoom;
@@ -36,17 +36,17 @@ public class Zoom {
         goal = Math.clamp(goal + amount, MIN_ZOOM, MAX_ZOOM);
     }
     public static void increment () {
-        increment(UTools.getConfig().scrollIncrement);
+        increment(ModConfig.scrollIncrement);
     }
     public static void decrement () {
-        increment(-UTools.getConfig().scrollIncrement);
+        increment(-ModConfig.scrollIncrement);
     }
 
     public static Easing getZoomInEasing() {
-        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomInEasing;
+        return ModConfig.zoomDuration == 0 ? Easing.INSTANT : ModConfig.zoomInEasing;
     }
 
     public static Easing getZoomOutEasing() {
-        return UTools.getConfig().zoomDuration == 0 ? Easing.INSTANT : UTools.getConfig().zoomOutEasing;
+        return ModConfig.zoomDuration == 0 ? Easing.INSTANT : ModConfig.zoomOutEasing;
     }
 }

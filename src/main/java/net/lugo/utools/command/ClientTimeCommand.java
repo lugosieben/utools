@@ -5,7 +5,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.ClientTime;
 import net.lugo.utools.features.ClientTime.ClientTimeType;
 import net.minecraft.commands.CommandBuildContext;
@@ -13,7 +13,7 @@ import net.minecraft.commands.CommandBuildContext;
 public class ClientTimeCommand {
     private static int setCustomTime(CommandContext<FabricClientCommandSource> context) {
         ClientTime.set(ClientTimeType.CUSTOM);
-        UTools.getConfig().customClientTime = IntegerArgumentType.getInteger(context, "time");
+        ModConfig.customClientTime = IntegerArgumentType.getInteger(context, "time");
         return 1;
     }
 

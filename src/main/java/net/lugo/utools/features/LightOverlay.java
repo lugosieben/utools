@@ -1,6 +1,5 @@
 package net.lugo.utools.features;
 
-import me.shedaniel.autoconfig.AutoConfig;
 import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.OverlayRenderer;
@@ -15,7 +14,6 @@ import java.awt.*;
 
 public class LightOverlay {
     private static boolean activated = false;
-    private static final ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
     static Minecraft MC = Minecraft.getInstance();
 
     public static void toggle() {
@@ -40,7 +38,7 @@ public class LightOverlay {
                     if (MC.level.loadedAndEntityCanStandOn(blockPos, MC.player) && !MC.level.loadedAndEntityCanStandOn(blockPos.above(), MC.player)) {
                         Color color = Color.RED;
                         int blockLightLevel = MC.level.getBrightness(LightLayer.BLOCK, blockPos.above());
-                        if (blockLightLevel >= config.lightOverlayThreshold) color = Color.GREEN;
+                        if (blockLightLevel >= ModConfig.lightOverlayThreshold) color = Color.GREEN;
                         OverlayRenderer.addBlock(MC.gameRenderer.getMainCamera(), Vec3.atLowerCornerOf(blockPos), color.getRed(), color.getGreen(), color.getBlue(), 0.01F);
                     }
                 }

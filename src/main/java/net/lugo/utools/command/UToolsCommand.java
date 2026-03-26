@@ -1,7 +1,6 @@
 package net.lugo.utools.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import me.shedaniel.autoconfig.AutoConfigClient;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.lugo.utools.config.ModConfig;
@@ -15,7 +14,7 @@ public class UToolsCommand {
         dispatcher.register(ClientCommandManager.literal("utools")
             .then(ClientCommandManager.literal("config")
                 .executes(context -> {
-                    MC.schedule(() -> MC.setScreen(AutoConfigClient.getConfigScreen(ModConfig.class, MC.screen).get()));
+                    MC.schedule(() -> MC.setScreen(ModConfig.makeScreen(MC.screen)));
                         return 1;
                     })
                 )

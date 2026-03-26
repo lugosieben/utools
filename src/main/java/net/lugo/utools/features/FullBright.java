@@ -1,6 +1,6 @@
 package net.lugo.utools.features;
 
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.util.HudMessage;
 import net.lugo.utools.util.PlayerEffects;
 import net.minecraft.ChatFormatting;
@@ -21,8 +21,8 @@ public class FullBright {
     }
 
     public static int toggleGamma() {
-        double normalGamma = (double) UTools.getConfig().normalGammaPercentage / 100;
-        double fullGamma = (double) UTools.getConfig().fullGammaPercentage / 100;
+        double normalGamma = (double) ModConfig.normalGammaPercentage / 100;
+        double fullGamma = (double) ModConfig.fullGammaPercentage / 100;
 
         double toPut = gamma.get() == fullGamma ? normalGamma : fullGamma;
         int percentage = (int)toPut * 100;
@@ -48,7 +48,7 @@ public class FullBright {
     }
 
     public static void resetGamma() {
-        if (gamma.get() > 1) gamma.set((double) UTools.getConfig().normalGammaPercentage / 100);
+        if (gamma.get() > 1) gamma.set((double) ModConfig.normalGammaPercentage / 100);
     }
 
     public static void resetNV() {

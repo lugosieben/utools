@@ -1,7 +1,7 @@
 package net.lugo.utools.mixin.visualmods;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.lugo.utools.UTools;
+import net.lugo.utools.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
@@ -18,10 +18,10 @@ public class LowFireOverlayMixin {
     private static void renderFireOverlay(PoseStack matrices, MultiBufferSource vertexConsumers, TextureAtlasSprite sprite, CallbackInfo ci) {
         if (Minecraft.getInstance().player == null) return;
 
-        if (UTools.getConfig().hideFireWhenResistant && Minecraft.getInstance().player.hasEffect(MobEffects.FIRE_RESISTANCE)) {
+        if (ModConfig.hideFireWhenResistant && Minecraft.getInstance().player.hasEffect(MobEffects.FIRE_RESISTANCE)) {
             matrices.translate(0, -100, 0);
         } else {
-            matrices.translate(0, (double) UTools.getConfig().lowFireModifier / 100, 0);
+            matrices.translate(0, (double) ModConfig.lowFireModifier / 100, 0);
         }
     }
 }
