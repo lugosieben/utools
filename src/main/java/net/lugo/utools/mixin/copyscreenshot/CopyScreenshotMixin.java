@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class CopyScreenshotMixin {
 
     @Inject(
-            method = "method_22691(Lcom/mojang/blaze3d/platform/NativeImage;Ljava/io/File;Ljava/util/function/Consumer;)V",
+            method = "lambda$grab$1",
             at = @At(
                     value = "INVOKE",
                     target = "Lcom/mojang/blaze3d/platform/NativeImage;writeToFile(Ljava/io/File;)V",
@@ -32,7 +32,7 @@ public class CopyScreenshotMixin {
             )
     )
 
-    private static void afterScreenshot(NativeImage nativeImage, File file, Consumer<Component> consumer, CallbackInfo ci) {
+    private static void afterScreenshot(NativeImage image, File file, Consumer<Component> callback, CallbackInfo ci) {
         if (!ModConfig.copyScreenshots) return;
         Minecraft MC = Minecraft.getInstance();
         new Thread(() -> {

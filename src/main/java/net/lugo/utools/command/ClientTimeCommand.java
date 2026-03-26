@@ -3,7 +3,7 @@ package net.lugo.utools.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.ClientTime;
@@ -18,19 +18,19 @@ public class ClientTimeCommand {
     }
 
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandBuildContext ignoredCommandRegistryAccess) {
-        dispatcher.register(ClientCommandManager.literal("clienttime")
-                .then(ClientCommandManager.literal("reset")
+        dispatcher.register(ClientCommands.literal("clienttime")
+                .then(ClientCommands.literal("reset")
                         .executes((ctx) -> { ClientTime.set(ClientTimeType.DISABLED); return 1; }))
-                .then(ClientCommandManager.literal("set")
-                        .then(ClientCommandManager.literal("day")
+                .then(ClientCommands.literal("set")
+                        .then(ClientCommands.literal("day")
                                 .executes((ctx) -> { ClientTime.set(ClientTimeType.DAY); return 1; }))
-                        .then(ClientCommandManager.literal("midnight")
+                        .then(ClientCommands.literal("midnight")
                                 .executes((ctx) -> { ClientTime.set(ClientTimeType.MIDNIGHT); return 1; }))
-                        .then(ClientCommandManager.literal("night")
+                        .then(ClientCommands.literal("night")
                                 .executes((ctx) -> { ClientTime.set(ClientTimeType.NIGHT); return 1; }))
-                        .then(ClientCommandManager.literal("noon")
+                        .then(ClientCommands.literal("noon")
                                 .executes((ctx) -> { ClientTime.set(ClientTimeType.DAY); return 1; }))
-                        .then(ClientCommandManager.argument("time", IntegerArgumentType.integer())
+                        .then(ClientCommands.argument("time", IntegerArgumentType.integer())
                                 .executes(ClientTimeCommand::setCustomTime))));
     }
 }

@@ -4,23 +4,23 @@ import net.lugo.utools.config.ModConfig;
 import net.lugo.utools.features.Zoom;
 import net.lugo.utools.util.Easing;
 import net.minecraft.client.Camera;
-import net.minecraft.client.renderer.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
-@Mixin(GameRenderer.class)
+@Mixin(Camera.class)
 public class ZoomMixin {
-    @Inject(at = @At("RETURN"), method = "getFov", cancellable = true)
-    public void getFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Float> callbackInfo) {
+    @ModifyArgs(method = "calculateFov", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Camera;modifyFovBasedOnDeathOrFluid(FF)F"))
+    public void getFov(Args args) {
+        float partialTicks = args.get(0);
+        float fov = args.get(1);
         if (ModConfig.turnOffZoom) return;
-        float fov = callbackInfo.getReturnValue();
         float effectiveZoomMultiplier = Zoom.goal;
         Easing easing = Zoom.lastGoal >= Zoom.goal ? Zoom.getZoomOutEasing() : Zoom.getZoomInEasing();
         
         if (Zoom.latestEffectiveZoom != Zoom.goal) {
-            Zoom.t += (tickDelta * 50) / 1000;
+            Zoom.t += (partialTicks * 50) / 1000;
             effectiveZoomMultiplier = easing.function.apply(
                 Zoom.lastGoal,
                 Zoom.goal,
@@ -31,6 +31,6 @@ public class ZoomMixin {
         }
         
         Zoom.latestEffectiveZoom = effectiveZoomMultiplier;
-        callbackInfo.setReturnValue(fov / effectiveZoomMultiplier);
+        args.set(1, fov / effectiveZoomMultiplier);
     }
 }

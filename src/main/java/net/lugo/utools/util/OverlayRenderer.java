@@ -1,7 +1,7 @@
 package net.lugo.utools.util;
 
+import com.mojang.blaze3d.pipeline.DepthStencilState;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.mojang.blaze3d.platform.DepthTestFunction;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -27,8 +27,7 @@ public class OverlayRenderer {
             RenderPipeline.builder(RenderPipelines.GUI_TEXTURED_SNIPPET)
                     .withLocation(Identifier.fromNamespaceAndPath(UTools.MOD_ID, "pipeline/light_overlay"))
                     .withCull(true)
-                    .withDepthTestFunction(DepthTestFunction.LEQUAL_DEPTH_TEST)
-                    .withDepthWrite(true)
+                    .withDepthStencilState(DepthStencilState.DEFAULT)
                     .build()
     );
 

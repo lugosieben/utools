@@ -25,7 +25,7 @@ public class FogMixin {
     private static List<FogEnvironment> FOG_ENVIRONMENTS;
 
     @WrapOperation(
-            method = "setupFog(Lnet/minecraft/client/Camera;ILnet/minecraft/client/DeltaTracker;FLnet/minecraft/client/multiplayer/ClientLevel;)Lorg/joml/Vector4f;",
+            method = "setupFog",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/renderer/fog/environment/FogEnvironment;setupFog(Lnet/minecraft/client/renderer/fog/FogData;Lnet/minecraft/client/Camera;Lnet/minecraft/client/multiplayer/ClientLevel;FLnet/minecraft/client/DeltaTracker;)V"))
@@ -58,7 +58,7 @@ public class FogMixin {
         }
     }
 
-    @ModifyConstant(method = "setupFog(Lnet/minecraft/client/Camera;ILnet/minecraft/client/DeltaTracker;FLnet/minecraft/client/multiplayer/ClientLevel;)Lorg/joml/Vector4f;", constant = @Constant(intValue = 16))
+    @ModifyConstant(method = "setupFog", constant = @Constant(intValue = 16))
     private int applyFog(int value) {
         if (!ModConfig.renderDistanceFog) {
             value *= 2;
