@@ -60,7 +60,7 @@ public class FogMixin {
 
     @ModifyConstant(method = "setupFog", constant = @Constant(intValue = 16))
     private int applyFog(int value) {
-        if (!ModConfig.renderDistanceFog) {
+        if (!ModConfig.renderDistanceFog || ModConfig.turnOffAllFogs) {
             value *= 2;
         }
 

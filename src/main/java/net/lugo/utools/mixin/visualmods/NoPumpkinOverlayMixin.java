@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 public class NoPumpkinOverlayMixin {
 
-    @Inject(method = "extractRenderState", at = @At("HEAD"), cancellable = true)
-    private void extract (GuiGraphicsExtractor context, DeltaTracker tickCounter, CallbackInfo ci) {
+    @Inject(method = "extractCameraOverlays", at = @At("HEAD"), cancellable = true)
+    private void extract (GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
         if (ModConfig.hidePumpkinOverlay) ci.cancel();
     }
 }
