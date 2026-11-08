@@ -29,11 +29,6 @@
   "text.autoconfig.utools.option.turnOffZoom.@Tooltip[0]": "ズーム機能を完全に無効化する",
   "text.autoconfig.utools.option.turnOffZoom.@Tooltip[1]": "他のズームMODが使えなくなったりする場合に便利",
 
-  "key.utools.lightOverlayToggle": "湧き潰し表示",
-  "text.autoconfig.utools.option.lightOverlayThreshold": "湧き潰し表示しきい値",
-  "text.utools.message.lightOverlayToggle.on": "湧き潰し表示 §2オン",
-  "text.utools.message.lightOverlayToggle.off": "湧き潰し表示 §4オフ",
-
   "text.autoconfig.utools.category.ClientTimeWeather": "時間/天候",
   "text.autoconfig.utools.option.clientTimeType": "ゲーム内時間",
   "text.autoconfig.utools.option.clientTimeType.@Tooltip": "クライアント側",

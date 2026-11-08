@@ -15,7 +15,6 @@
     "fullbright.InvalidGammaValuesMixin",
     "gameplay.KeepMiningMixin",
     "hideplayers.HidePlayersMixin",
-    "mixinevents.WorldRendererMixin",
     "unpintexturepacks.UnpinTexturePacksMixin",
     "visualmods.LowFireOverlayMixin",
     "visualmods.LowShieldMixin",

@@ -114,10 +114,6 @@ public class ModConfig {
 	@SerialEntry
 	public static boolean keepMining = false;
 
-	// Light Overlay
-	@SerialEntry
-	public static int lightOverlayThreshold = 1;
-
 	// Other
 	@SerialEntry
 	public static boolean unpinAllTexturePacks = false;
@@ -336,12 +332,6 @@ public class ModConfig {
 								.description(OptionDescription.of(Component.translatable("text.utools.config.option.keep_mining.description")))
 								.binding(false, () -> keepMining, newVal -> keepMining = newVal)
 								.controller(TickBoxControllerBuilder::create)
-								.build())
-						.option(Option.<Integer>createBuilder()
-								.name(Component.translatable("text.utools.config.option.light_overlay_threshold.name"))
-								.description(OptionDescription.of(Component.translatable("text.utools.config.option.light_overlay_threshold.description")))
-								.binding(1, () -> lightOverlayThreshold, newVal -> lightOverlayThreshold = newVal)
-								.controller(opt -> IntegerSliderControllerBuilder.create(opt).range(1, 15).step(1))
 								.build())
 						.build())
 				.category(ConfigCategory.createBuilder()

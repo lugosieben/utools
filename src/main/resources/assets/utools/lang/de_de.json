@@ -34,12 +34,6 @@
   "text.utools.config.option.turn_off_zoom.name": "Kompatibilitätsumschalter",
   "text.utools.config.option.turn_off_zoom.description": "Schaltet die Zoom Funktion komplett aus. Verwende es, wenn du Kompatibilitätsprobleme mit anderen Zoom Mods hast",
 
-  "key.utools.lightOverlayToggle": "Lichtlevel-Anzeige umschalten",
-  "text.utools.config.option.light_overlay_threshold.name": "Lichtlevel-Anzeige Beginn",
-  "text.utools.config.option.light_overlay_threshold.description": "",
-  "text.utools.message.lightOverlayToggle.on": "Lichtlevel-Anzeige §2an",
-  "text.utools.message.lightOverlayToggle.off": "Lichtlevel-Anzeige §4aus",
-
   "text.utools.config.category.client_time_weather": "Client-Zeit/Wetter",
   "text.utools.config.option.client_time_type.name": "Client-Zeit",
   "text.utools.config.option.client_time_type.description": "",

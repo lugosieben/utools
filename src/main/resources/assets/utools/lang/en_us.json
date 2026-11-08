@@ -35,12 +35,6 @@
   "text.utools.config.option.turn_off_zoom.name": "Compatibility Toggle",
   "text.utools.config.option.turn_off_zoom.description": "Completely toggles off the zoom functionality. Use this when you are having compatibility issues with other zoom mods",
 
-  "key.utools.lightOverlayToggle": "Toggle Light Overlay",
-  "text.utools.config.option.light_overlay_threshold.name": "Light Overlay Threshold",
-  "text.utools.config.option.light_overlay_threshold.description": "Minimum light level for overlay display",
-  "text.utools.message.lightOverlayToggle.on": "Light Overlay §2on",
-  "text.utools.message.lightOverlayToggle.off": "Light Overlay §4off",
-
   "text.utools.config.category.client_time_weather": "Client Time/Weather",
   "text.utools.config.option.client_time_type.name": "Client Time",
   "text.utools.config.option.client_time_type.description": "Set custom client-side time",
