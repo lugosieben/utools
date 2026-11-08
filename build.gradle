@@ -90,3 +90,10 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+loom {
+    runs {
+        client {
+            vmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+AlwaysPreTouchStacks")
+        }
+    }
+}
