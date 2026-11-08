@@ -34,12 +34,6 @@
   "text.utools.config.option.turn_off_zoom.name": "Alternar Compatibilidad",
   "text.utools.config.option.turn_off_zoom.description": "Desactiva completamente la funcionalidad de zoom",
 
-  "key.utools.lightOverlayToggle": "Alternar Superposición de Luz",
-  "text.utools.config.option.light_overlay_threshold.name": "Umbral de Superposición de Luz",
-  "text.utools.config.option.light_overlay_threshold.description": "",
-  "text.utools.message.lightOverlayToggle.on": "Superposición de Luz §2activada",
-  "text.utools.message.lightOverlayToggle.off": "Superposición de Luz §4apagada",
-
   "text.utools.config.category.client_time_weather": "Tiempo/Clima",
   "text.utools.config.option.client_time_type.name": "Tiempo del cliente",
   "text.utools.config.option.client_time_type.description": "",

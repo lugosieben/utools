@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class CopyScreenshotMixin {
 
     @Inject(
-            method = "lambda$grab$1",
+            method = "lambda$grab$3",
             at = @At(
                     value = "INVOKE",
                     target = "Lcom/mojang/blaze3d/platform/NativeImage;writeToFile(Ljava/io/File;)V",

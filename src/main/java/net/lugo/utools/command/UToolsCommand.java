@@ -14,7 +14,7 @@ public class UToolsCommand {
         dispatcher.register(ClientCommands.literal("utools")
             .then(ClientCommands.literal("config")
                 .executes(context -> {
-                    MC.schedule(() -> MC.setScreen(ModConfig.makeScreen(MC.screen)));
+                    MC.schedule(() -> MC.gui.setScreen(ModConfig.makeScreen(MC.gui.screen())));
                         return 1;
                     })
                 )

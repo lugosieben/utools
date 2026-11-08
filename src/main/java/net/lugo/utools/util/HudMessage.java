@@ -9,6 +9,6 @@ public class HudMessage {
 
     public static void show(MutableComponent string, ChatFormatting format) {
         MutableComponent message = string.withStyle(format);
-        client.gui.setOverlayMessage(message, false);
+        client.gui.hud.setOverlayMessage(message, false);
     }
 }

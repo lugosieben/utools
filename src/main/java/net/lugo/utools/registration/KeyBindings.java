@@ -19,7 +19,6 @@ public class KeyBindings {
         registerFullbrightGammaKey();
         registerZoomKey();
         registerZoomToggleKey();
-        registerLightOverlayKey();
         registerAutoAttackKey();
         registerHidePlayersKey();
     }
@@ -68,17 +67,6 @@ public class KeyBindings {
                 } else {
                     Zoom.on();
                 }
-            }
-        });
-    }
-
-    private static void registerLightOverlayKey() {
-        KeyMapping lightOverlayKey = new KeyMapping(BASE_KEY + ".lightOverlayToggle", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F9, CATEGORY);
-        KeyMappingHelper.registerKeyMapping(lightOverlayKey);
-
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (lightOverlayKey.consumeClick()) {
-                LightOverlay.toggle();
             }
         });
     }
