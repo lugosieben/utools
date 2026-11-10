@@ -8,6 +8,7 @@
   },
   "client": [
     "clienttimeweather.ClientTimeMixin",
+    "clienttimeweather.ClientTimeClockMixin",
     "clienttimeweather.ClientWeatherMixin",
     "copyscreenshot.CopyScreenshotMixin",
     "copyscreenshot.MainMixin",

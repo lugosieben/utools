@@ -7,6 +7,17 @@ public class ClientTime {
         ModConfig.clientTimeType = timeType;
     }
 
+    public static Long forcedGameTime() {
+        return switch (ModConfig.clientTimeType) {
+            case DISABLED -> null;
+            case DAY -> 1000L;
+            case NOON -> 6000L;
+            case NIGHT -> 13000L;
+            case MIDNIGHT -> 18000L;
+            case CUSTOM -> (long) ModConfig.customClientTime;
+        };
+    }
+
     public enum ClientTimeType {
         DISABLED,
         DAY,
