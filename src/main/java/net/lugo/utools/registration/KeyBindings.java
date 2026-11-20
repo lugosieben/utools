@@ -14,12 +14,6 @@ public class KeyBindings {
     private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(Identifier.parse(UTools.MOD_ID));
     private static final String BASE_KEY = "key." + UTools.MOD_ID;
 
-    // GLFW key-codes, kept as local constants because org.lwjgl.glfw is not on the 26.3 compile classpath.
-    private static final int KEY_UNKNOWN = -1;
-    private static final int KEY_G = 71;
-    private static final int KEY_C = 67;
-    private static final int KEY_F10 = 299;
-
     public static void registerKeybinds() {
         registerFullbrightGammaKey();
         registerZoomKey();
@@ -29,7 +23,7 @@ public class KeyBindings {
     }
 
     private static void registerFullbrightGammaKey() {
-        KeyMapping fullbrightKey = new KeyMapping(BASE_KEY + ".fullbrightGammaToggle", InputConstants.Type.KEYBOARD, KEY_G, CATEGORY);
+        KeyMapping fullbrightKey = new KeyMapping(BASE_KEY + ".fullbrightGammaToggle", InputConstants.Type.KEYBOARD, InputConstants.KEY_G, CATEGORY);
         KeyMappingHelper.registerKeyMapping(fullbrightKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -47,7 +41,7 @@ public class KeyBindings {
 
     private static boolean lastZoomKeyPressedState = false;
     private static void registerZoomKey() {
-        KeyMapping zoomKey = new KeyMapping(BASE_KEY + ".zoom", InputConstants.Type.KEYBOARD, KEY_C, CATEGORY);
+        KeyMapping zoomKey = new KeyMapping(BASE_KEY + ".zoom", InputConstants.Type.KEYBOARD, InputConstants.KEY_C, CATEGORY);
         KeyMappingHelper.registerKeyMapping(zoomKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -62,7 +56,7 @@ public class KeyBindings {
     }
 
     private static void registerZoomToggleKey() {
-        KeyMapping zoomToggleKey = new KeyMapping(BASE_KEY + ".zoomToggle", InputConstants.Type.KEYBOARD, KEY_UNKNOWN, CATEGORY);
+        KeyMapping zoomToggleKey = new KeyMapping(BASE_KEY + ".zoomToggle", InputConstants.Type.KEYBOARD, 0, CATEGORY);
         KeyMappingHelper.registerKeyMapping(zoomToggleKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -77,7 +71,7 @@ public class KeyBindings {
     }
 
     private static void registerAutoAttackKey() {
-        KeyMapping autoAttackKey = new KeyMapping(BASE_KEY + ".autoAttackToggle", InputConstants.Type.KEYBOARD, KEY_F10, CATEGORY);
+        KeyMapping autoAttackKey = new KeyMapping(BASE_KEY + ".autoAttackToggle", InputConstants.Type.KEYBOARD, InputConstants.KEY_F10, CATEGORY);
         KeyMappingHelper.registerKeyMapping(autoAttackKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -88,7 +82,7 @@ public class KeyBindings {
     }
 
     private static void registerHidePlayersKey() {
-        KeyMapping hidePlayersKey = new KeyMapping(BASE_KEY + ".hidePlayersToggle", InputConstants.Type.KEYBOARD, KEY_UNKNOWN, CATEGORY);
+        KeyMapping hidePlayersKey = new KeyMapping(BASE_KEY + ".hidePlayersToggle", InputConstants.Type.KEYBOARD, 0, CATEGORY);
         KeyMappingHelper.registerKeyMapping(hidePlayersKey);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
